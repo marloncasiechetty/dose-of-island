@@ -98,14 +98,18 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
   header a[href="Shop Now.dc.html"] > span:first-child { display: none !important; }
   header #header-cart-btn { width: 40px !important; height: 40px !important; }
 
-  .menu-link { font-size: 9vw !important; padding: 0.35em 0.2em !important; }
-
-  #about-can-track { height: calc(100vh + 900px) !important; }
-  #about-can-row { flex-wrap: wrap !important; gap: 4px !important; justify-content: center !important; }
-  .about-can-slot { flex: 0 0 30% !important; min-width: 0 !important; max-width: 32% !important; }
-  .about-fruit-deco { width: 70px !important; }
-
-  footer#site-footer > div:last-child { gap: 1.8rem !important; }
+  .menu-link {
+    font-size: clamp(1.8rem, 7.5vw, 2.6rem) !important;
+    padding: 0.2em 0.2em !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .menu-link span, .menu-link-fill {
+    text-align: center !important;
+  }
 }
 
 @media (max-width: 620px) {
@@ -113,7 +117,10 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
   .pdp-specs { grid-template-columns: 1fr 1fr !important; gap: 0.8rem 1rem !important; }
   .pdp-compare { grid-template-columns: 1fr 1fr 1fr !important; }
   .pdp-compare > div { padding: 0.65rem 0.5rem !important; font-size: 0.68rem !important; }
-  .menu-link { font-size: 11vw !important; }
+  .menu-link {
+    font-size: clamp(1.6rem, 7.8vw, 2.5rem) !important;
+    text-align: center !important;
+  }
   footer#site-footer > div:last-child > div { min-width: 45% !important; }
   .about-can-slot { flex: 0 0 45% !important; max-width: 48% !important; }
 }
