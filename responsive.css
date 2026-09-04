@@ -538,5 +538,32 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     max-width: 100% !important;
     justify-content: center !important;
   }
+
+  /* Convert "Add to Cart" text to a plus (+) button on mobile for product cards in More Flavours section & Shop grid */
+  .shop-card-wrap .add-to-cart-btn,
+  .pdp-more .add-to-cart-btn,
+  div[data-label="Shop"] .add-to-cart-btn {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0 !important;
+    position: relative !important;
+  }
+  .shop-card-wrap .add-to-cart-btn::after,
+  .pdp-more .add-to-cart-btn::after,
+  div[data-label="Shop"] .add-to-cart-btn::after {
+    content: "+" !important;
+    font-size: 1.25rem !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    color: currentColor !important;
+    display: block !important;
+  }
 }
 
