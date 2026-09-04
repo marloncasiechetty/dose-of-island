@@ -799,7 +799,7 @@ class Component extends DCLogic {
       cheersRipple.style.animation = 'cheersRipple 0.65s ease-out forwards';
       setTimeout(() => { cheersRipple.style.animation = ''; }, 650);
 
-      const sparkTop = isMob ? 'calc(100% - 140px)' : '60%';
+      const sparkTop = isMob ? 'calc(100% - 110px)' : '60%';
       for (let i = 0; i < 12; i++) {
         const spark = document.createElement('div');
         const angle = (i / 12) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
