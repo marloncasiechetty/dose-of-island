@@ -51,16 +51,14 @@
     image-slot::part(frame) { background: transparent !important; }
     html, body { margin: 0; padding: 0; font-family: 'Satoshi', sans-serif; font-weight: 400; }
     html { scroll-behavior: smooth; }
-    body { scroll-snap-type: y proximity; }
-    #hero-about-wrap { scroll-snap-align: start; }
+    body { scroll-snap-type: none !important; }
     #hero-pin { min-height: 100vh; }
     @supports (height: 100dvh) { #hero-pin { min-height: 100dvh; } }
-    #about-section { min-height: 100vh; height: auto; scroll-snap-align: start; }
+    #about-section { min-height: 100vh; height: auto; }
     @supports (height: 100dvh) { #about-section { min-height: 100dvh; } }
-    #carousel-section { scroll-snap-align: none !important; scroll-snap-stop: normal !important; min-height: 100vh; height: 100vh; }
+    #carousel-section { min-height: 100vh; height: 100vh; }
     @supports (height: 100dvh) { #carousel-section { min-height: 100dvh; height: 100dvh; } }
-    #cheers-section { scroll-snap-align: none !important; scroll-snap-stop: normal !important; }
-    #site-footer { scroll-snap-align: none !important; scroll-snap-stop: normal !important; display: flex; flex-direction: column; justify-content: center; }
+    #site-footer { display: flex; flex-direction: column; justify-content: center; }
     @media (prefers-reduced-motion: reduce) {
       #hero-pin { position: relative !important; }
       body { scroll-snap-type: none !important; }
@@ -420,13 +418,13 @@
 
 </section>
 
-<section id="cheers-section" data-label="Cheers" style="position:relative;width:100%;height:112vh;overflow:hidden;box-sizing:border-box;font-family:'Satoshi',sans-serif;background:#ffffff;">
+<section id="cheers-section" data-label="Cheers" style="position:relative;width:100%;min-height:85vh;padding:5rem 0 6rem;overflow:hidden;box-sizing:border-box;font-family:'Satoshi',sans-serif;background:#ffffff;">
 
-  <div style="position:absolute;top:80%;left:50%;transform:translate(-50%,-50%);width:100%;text-align:center;pointer-events:none;z-index:0;overflow:hidden;white-space:nowrap;">
+  <div style="position:absolute;top:75%;left:50%;transform:translate(-50%,-50%);width:100%;text-align:center;pointer-events:none;z-index:0;overflow:hidden;white-space:nowrap;">
     <span style="font-family:'Satoshi',sans-serif;font-weight:900;font-size:16vw;line-height:1;letter-spacing:-0.02em;color:#000000;opacity:0.03;display:inline-block;">CHEERS! CHEERS!</span>
   </div>
 
-  <div id="cheers-content" style="position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;padding-top:11vh;gap:1.4rem;box-sizing:border-box;pointer-events:none;">
+  <div id="cheers-content" style="position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;padding-top:0;gap:1.4rem;margin-bottom:3rem;box-sizing:border-box;pointer-events:none;">
     <h2 style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);color:#000000;margin:0;text-align:center;">Cheers to Zero.</h2>
     <p style="color:#050505;font-size:1.05rem;max-width:420px;text-align:center;margin:0;">Grab a can, share the moment, and toast to zero sugar, zero regrets.</p>
     <a href="Shop Now.dc.html" style-hover="box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.16);transform:translateY(-2px);" style="display:flex;align-items:center;gap:0;padding:4px;border-radius:100px;background:#ffffff;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.1);text-decoration:none;pointer-events:auto;transition:all 0.25s ease;">
@@ -827,12 +825,11 @@ class Component extends DCLogic {
       } else {
         gsap.registerPlugin(ScrollTrigger);
         const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
-        const isMobile = window.innerWidth <= 768;
         cheersScrollTrigger = ScrollTrigger.create({
           trigger: cheersSection,
-          start: isMobile ? 'top 80%' : 'top top',
-          end: isMobile ? 'bottom 60%' : '+=40%',
-          pin: !isMobile,
+          start: 'top 80%',
+          end: 'bottom 40%',
+          pin: false,
           scrub: 0.3,
           onUpdate: (self) => {
             const p = clamp(self.progress, 0, 1);
