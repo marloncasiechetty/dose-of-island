@@ -547,6 +547,11 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     height: 36px !important;
     min-width: 36px !important;
     max-width: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    aspect-ratio: 1 / 1 !important;
+    flex-shrink: 0 !important;
+    align-self: center !important;
     padding: 0 !important;
     border-radius: 50% !important;
     display: inline-flex !important;
@@ -554,6 +559,7 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     justify-content: center !important;
     font-size: 0 !important;
     position: relative !important;
+    box-sizing: border-box !important;
   }
   .shop-card-wrap .add-to-cart-btn::after,
   .pdp-more .add-to-cart-btn::after,
