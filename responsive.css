@@ -115,5 +115,232 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
   .pdp-compare > div { padding: 0.65rem 0.5rem !important; font-size: 0.68rem !important; }
   .menu-link { font-size: 11vw !important; }
   footer#site-footer > div:last-child > div { min-width: 45% !important; }
-  .about-can-slot { flex: 0 0 31% !important; max-width: 33% !important; }
+  .about-can-slot { flex: 0 0 45% !important; max-width: 48% !important; }
 }
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVE OVERRIDES (< 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* --- 1. HERO SECTION (`index.html`) --- */
+  #hero-notch {
+    top: 75px !important;
+    left: 12px !important;
+    right: 12px !important;
+    padding: 0.8rem 1rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  #hero-headline,
+  #hero-notch > div:nth-child(2),
+  #hero-notch > div:nth-child(3) {
+    font-size: clamp(2rem, 8.5vw, 3.2rem) !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+  }
+  #hero-notch > div:first-child {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  #hero-notch image-slot {
+    display: none !important;
+  }
+  #product-model {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 78vw !important;
+    height: 52vh !important;
+    max-width: 320px !important;
+    max-height: 460px !important;
+  }
+  #hero-title-block {
+    justify-content: flex-end !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 1rem 0 2rem !important;
+  }
+
+  /* --- 2. DOSE OF ISLAND INTRO SECTION (`#about-section`) --- */
+  #about-section {
+    padding: 4rem 0 3rem !important;
+    min-height: auto !important;
+  }
+  #about-tags {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .about-tag {
+    padding: 8px 12px !important;
+  }
+  .about-tag span {
+    font-size: 0.72rem !important;
+  }
+  #about-headline-wrap {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  #about-headline-base, #about-headline-fill span:first-child {
+    font-size: 16vw !important;
+  }
+  #about-headline-wrap > div, #about-headline-fill > div {
+    font-size: 7vw !important;
+    margin-left: 0.5rem !important;
+    padding-top: 0 !important;
+  }
+  #about-below {
+    flex-direction: column !important;
+    margin-top: 2rem !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+  #about-photo-wrap {
+    width: 80% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  #about-right-col {
+    width: 100% !important;
+    flex-direction: column !important;
+    padding-top: 0 !important;
+    gap: 2rem !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  #about-copy-block {
+    width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  #about-copy-block p {
+    font-size: 1rem !important;
+  }
+  #about-copy-block a {
+    align-self: center !important;
+  }
+  #about-photo-grid {
+    width: 100% !important;
+    justify-content: center !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* --- 3. "THIS ISN'T JUST A DRINK" SECTION & FRUIT DECORATIONS --- */
+  .about-fruit-deco {
+    opacity: 0.18 !important;
+    width: 55px !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+  #about-can-track {
+    height: auto !important;
+  }
+  #about-can-row-pin {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    padding-top: 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  #about-can-row {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    justify-content: center !important;
+    height: auto !important;
+  }
+  .about-can-slot {
+    flex: 0 0 44% !important;
+    max-width: 46% !important;
+    height: 190px !important;
+    aspect-ratio: auto !important;
+  }
+
+  /* --- 4. NUTRITION FEATURE BADGES SECTION (`#about-ritual-section`) --- */
+  #about-ritual-section {
+    padding: 3.5rem 4% 4rem !important;
+  }
+  #ritual-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 1.5rem 1rem !important;
+    min-height: auto !important;
+    height: auto !important;
+    gap: 0.85rem !important;
+    margin-top: 1.5rem !important;
+  }
+  #ritual-card > div:first-child {
+    width: 200px !important;
+    height: 260px !important;
+    order: -1 !important;
+    position: relative !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .ritual-bubble {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    transform: none !important;
+    opacity: 1 !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- 5. FOOTER RESPONSIVENESS (`#site-footer`) --- */
+  footer#site-footer {
+    padding: 2rem 5% 3rem !important;
+  }
+  footer#site-footer > div:last-child {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem 1.5rem !important;
+    align-items: flex-start !important;
+  }
+  footer#site-footer > div:last-child > div:nth-child(3) {
+    grid-column: 1 / -1 !important;
+    order: -1 !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+  footer#site-footer > div:last-child > div {
+    min-width: 0 !important;
+  }
+
+  /* --- 6. VALUES & CHEERS SECTIONS --- */
+  #ab-values-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .ab-value {
+    min-height: auto !important;
+    opacity: 1 !important;
+  }
+  #cheers-section {
+    height: auto !important;
+    min-height: 80vh !important;
+    padding: 4rem 1rem !important;
+  }
+  #cheers-hand-left, #cheers-hand-right {
+    width: 42vw !important;
+  }
+}
+
