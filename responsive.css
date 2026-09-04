@@ -144,7 +144,7 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     border-radius: 24px !important;
   }
   #hero-notch {
-    top: 86px !important;
+    top: 104px !important;
     left: 8px !important;
     right: 8px !important;
     padding: 0.1rem 0.4rem !important;
@@ -155,11 +155,11 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
   #hero-headline,
   #hero-notch > div:nth-child(2),
   #hero-notch > div:nth-child(3) {
-    font-size: clamp(1.8rem, 7.8vw, 2.7rem) !important;
+    font-size: clamp(2.1rem, 9.2vw, 3.3rem) !important;
     white-space: normal !important;
     text-align: center !important;
-    line-height: 1.02 !important;
-    letter-spacing: -0.04em !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.05em !important;
     margin: 0 !important;
   }
   #hero-notch > div:first-child {
@@ -173,12 +173,12 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
   }
   #product-model {
     left: 50% !important;
-    top: 53% !important;
+    top: 56% !important;
     transform: translate(-50%, -50%) !important;
     width: 72vw !important;
-    height: 42vh !important;
-    max-width: 260px !important;
-    max-height: 370px !important;
+    height: 40vh !important;
+    max-width: 250px !important;
+    max-height: 350px !important;
     z-index: 10 !important;
   }
   #hero-title-block {
