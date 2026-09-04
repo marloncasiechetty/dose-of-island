@@ -226,8 +226,15 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     margin: 0 auto !important;
     box-sizing: border-box !important;
   }
-  #about-headline-fill {
+  #about-headline-fill,
+  #about-headline-fill *,
+  div[id="about-headline-fill"] {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
   }
   #about-headline-base {
     font-size: 17vw !important;
@@ -256,9 +263,11 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     gap: 2rem !important;
   }
   #about-photo-wrap {
-    width: calc(100% + 5.5vw) !important;
+    position: relative !important;
+    left: -3.5vw !important;
+    width: calc(100% + 3.5vw) !important;
     max-width: 360px !important;
-    margin-left: -5.5vw !important;
+    margin-left: 0 !important;
     margin-right: auto !important;
     transform: none !important;
     opacity: 1 !important;
@@ -269,6 +278,8 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     height: auto !important;
     display: block !important;
     object-position: left center !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   #about-right-col {
     width: 100% !important;
