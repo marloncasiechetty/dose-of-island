@@ -777,14 +777,16 @@ class Component extends DCLogic {
     let cheersScrollTrigger = null;
 
     const playCheersPunch = () => {
+      const isMob = window.innerWidth <= 768;
+      const yShift = isMob ? '0%' : '-50%';
       cheersHandLeft.style.transition = 'transform 0.22s cubic-bezier(0.34,1.56,0.64,1)';
       cheersHandRight.style.transition = 'transform 0.22s cubic-bezier(0.34,1.56,0.64,1)';
-      cheersHandLeft.style.transform = 'translate(0%,-50%) rotate(-4deg) scale(1.06)';
-      cheersHandRight.style.transform = 'translate(0%,-50%) rotate(4deg) scale(1.06)';
+      cheersHandLeft.style.transform = `translate(0%,${yShift}) rotate(-4deg) scale(1.06)`;
+      cheersHandRight.style.transform = `translate(0%,${yShift}) rotate(4deg) scale(1.06)`;
       setTimeout(() => {
         if (cheersPunched) {
-          cheersHandLeft.style.transform = 'translate(0%,-50%) rotate(-4deg) scale(1)';
-          cheersHandRight.style.transform = 'translate(0%,-50%) rotate(4deg) scale(1)';
+          cheersHandLeft.style.transform = `translate(0%,${yShift}) rotate(-4deg) scale(1)`;
+          cheersHandRight.style.transform = `translate(0%,${yShift}) rotate(4deg) scale(1)`;
         }
       }, 220);
       cheersFlash.style.transition = 'opacity 0.15s ease';
@@ -797,13 +799,14 @@ class Component extends DCLogic {
       cheersRipple.style.animation = 'cheersRipple 0.65s ease-out forwards';
       setTimeout(() => { cheersRipple.style.animation = ''; }, 650);
 
+      const sparkTop = isMob ? 'calc(100% - 95px)' : '60%';
       for (let i = 0; i < 12; i++) {
         const spark = document.createElement('div');
         const angle = (i / 12) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
         const speed = 40 + Math.random() * 60;
         const dx = Math.cos(angle) * speed;
         const dy = Math.sin(angle) * speed;
-        spark.style.cssText = `position:absolute;top:60%;left:50%;width:6px;height:6px;border-radius:50%;background:#ffffff;box-shadow:0 0 10px #ED3500, 0 0 18px #ffffff;pointer-events:none;z-index:10;transition:transform 0.5s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.5s ease;transform:translate(-50%,-50%) translate(0px,0px) scale(1);opacity:1;`;
+        spark.style.cssText = `position:absolute;top:${sparkTop};left:50%;width:6px;height:6px;border-radius:50%;background:#ffffff;box-shadow:0 0 10px #ED3500, 0 0 18px #ffffff;pointer-events:none;z-index:10;transition:transform 0.5s cubic-bezier(0.1, 0.8, 0.3, 1), opacity 0.5s ease;transform:translate(-50%,-50%) translate(0px,0px) scale(1);opacity:1;`;
         cheersShakeWrap.appendChild(spark);
         requestAnimationFrame(() => {
           spark.style.transform = `translate(-50%,-50%) translate(${dx}px,${dy}px) scale(0.2)`;
@@ -820,8 +823,10 @@ class Component extends DCLogic {
 
     if (cheersSection) {
       if (prefersReducedMotion) {
-        cheersHandLeft.style.transform = 'translate(0%,-50%) rotate(-4deg)';
-        cheersHandRight.style.transform = 'translate(0%,-50%) rotate(4deg)';
+        const isMob = window.innerWidth <= 768;
+        const yShift = isMob ? '0%' : '-50%';
+        cheersHandLeft.style.transform = `translate(0%,${yShift}) rotate(-4deg)`;
+        cheersHandRight.style.transform = `translate(0%,${yShift}) rotate(4deg)`;
       } else {
         gsap.registerPlugin(ScrollTrigger);
         const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
@@ -841,10 +846,12 @@ class Component extends DCLogic {
             } else if (p < 0.92) {
               if (cheersPunched) cheersPunched = false;
             }
+            const isMob = window.innerWidth <= 768;
+            const yShift = isMob ? '0%' : '-50%';
             cheersHandLeft.style.transition = 'none';
             cheersHandRight.style.transition = 'none';
-            cheersHandLeft.style.transform = `translate(${-handX}%,-50%) rotate(-4deg)`;
-            cheersHandRight.style.transform = `translate(${handX}%,-50%) rotate(4deg)`;
+            cheersHandLeft.style.transform = `translate(${-handX}%,${yShift}) rotate(-4deg)`;
+            cheersHandRight.style.transform = `translate(${handX}%,${yShift}) rotate(4deg)`;
           },
         });
       }

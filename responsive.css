@@ -439,14 +439,14 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     height: auto !important;
     min-height: auto !important;
     max-height: none !important;
-    padding: 3.5rem 1rem 4rem !important;
+    padding: 3rem 1rem 4.5rem !important;
     position: relative !important;
     overflow: hidden !important;
   }
   #cheers-content {
     padding-top: 0 !important;
-    gap: 1rem !important;
-    margin-bottom: 2.5rem !important;
+    gap: 0.9rem !important;
+    margin-bottom: 210px !important;
   }
   #cheers-content h2 {
     font-size: clamp(1.8rem, 6.5vw, 2.6rem) !important;
@@ -457,9 +457,14 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     max-width: 360px !important;
   }
   #cheers-hand-left, #cheers-hand-right {
-    top: 74% !important;
-    width: 52vw !important;
-    max-width: 240px !important;
+    top: auto !important;
+    bottom: 25px !important;
+    width: 60vw !important;
+    max-width: 270px !important;
+  }
+  #cheers-ripple, #cheers-flash {
+    top: auto !important;
+    bottom: 95px !important;
   }
 
   /* --- 7. PDP (PRODUCT DETAIL PAGES) HERO & DETAILS MOBILE OVERRIDES --- */
