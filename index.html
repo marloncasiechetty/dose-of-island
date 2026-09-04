@@ -826,21 +826,22 @@ class Component extends DCLogic {
       } else {
         gsap.registerPlugin(ScrollTrigger);
         const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+        const isMobile = window.innerWidth <= 768;
         cheersScrollTrigger = ScrollTrigger.create({
           trigger: cheersSection,
-          start: 'top top',
-          end: '+=40%',
-          pin: true,
+          start: isMobile ? 'top 80%' : 'top top',
+          end: isMobile ? 'bottom 60%' : '+=40%',
+          pin: !isMobile,
           scrub: 0.3,
           onUpdate: (self) => {
             const p = clamp(self.progress, 0, 1);
             const OVERLAP = 0;
             const handX = 100 - p * (100 + OVERLAP);
 
-            if (p >= 0.95 && !cheersPunched) {
+            if (p >= 0.85 && !cheersPunched) {
               cheersPunched = true;
               playCheersPunch();
-            } else if (p < 0.95) {
+            } else if (p < 0.85) {
               if (cheersPunched) cheersPunched = false;
               cheersHandLeft.style.transition = 'none';
               cheersHandRight.style.transition = 'none';
