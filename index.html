@@ -827,25 +827,24 @@ class Component extends DCLogic {
         const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
         cheersScrollTrigger = ScrollTrigger.create({
           trigger: cheersSection,
-          start: 'top 80%',
-          end: 'bottom 40%',
+          start: 'top 85%',
+          end: 'top 20%',
           pin: false,
           scrub: 0.3,
           onUpdate: (self) => {
             const p = clamp(self.progress, 0, 1);
-            const OVERLAP = 0;
-            const handX = 100 - p * (100 + OVERLAP);
+            const handX = 100 - p * 100;
 
-            if (p >= 0.85 && !cheersPunched) {
+            if (p >= 0.92 && !cheersPunched) {
               cheersPunched = true;
               playCheersPunch();
-            } else if (p < 0.85) {
+            } else if (p < 0.92) {
               if (cheersPunched) cheersPunched = false;
-              cheersHandLeft.style.transition = 'none';
-              cheersHandRight.style.transition = 'none';
-              cheersHandLeft.style.transform = `translate(${-handX}%,-50%) rotate(-4deg)`;
-              cheersHandRight.style.transform = `translate(${handX}%,-50%) rotate(4deg)`;
             }
+            cheersHandLeft.style.transition = 'none';
+            cheersHandRight.style.transition = 'none';
+            cheersHandLeft.style.transform = `translate(${-handX}%,-50%) rotate(-4deg)`;
+            cheersHandRight.style.transform = `translate(${handX}%,-50%) rotate(4deg)`;
           },
         });
       }
