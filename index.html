@@ -51,18 +51,19 @@
     image-slot::part(frame) { background: transparent !important; }
     html, body { margin: 0; padding: 0; font-family: 'Satoshi', sans-serif; font-weight: 400; }
     html { scroll-behavior: smooth; }
-    body { scroll-snap-type: y mandatory; }
+    body { scroll-snap-type: y proximity; }
     #hero-about-wrap { scroll-snap-align: start; }
     #hero-pin { min-height: 100vh; }
     @supports (height: 100dvh) { #hero-pin { min-height: 100dvh; } }
-    #about-section { min-height: 100vh; height: auto; scroll-snap-align: start; scroll-snap-stop: always; }
+    #about-section { min-height: 100vh; height: auto; scroll-snap-align: start; }
     @supports (height: 100dvh) { #about-section { min-height: 100dvh; } }
-    #carousel-section { scroll-snap-align: start; scroll-snap-stop: always; min-height: 100vh; height: 100vh; }
+    #carousel-section { scroll-snap-align: none !important; scroll-snap-stop: normal !important; min-height: 100vh; height: 100vh; }
     @supports (height: 100dvh) { #carousel-section { min-height: 100dvh; height: 100dvh; } }
-    #site-footer { scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; }
+    #cheers-section { scroll-snap-align: none !important; scroll-snap-stop: normal !important; }
+    #site-footer { scroll-snap-align: none !important; scroll-snap-stop: normal !important; display: flex; flex-direction: column; justify-content: center; }
     @media (prefers-reduced-motion: reduce) {
       #hero-pin { position: relative !important; }
-      body { scroll-snap-type: y proximity !important; }
+      body { scroll-snap-type: none !important; }
     }
     @keyframes aboutBubbleRise { 0% { transform: translateY(0) scale(0.6); opacity: 0; } 15% { opacity: 0.9; } 90% { opacity: 0.5; } 100% { transform: translateY(-260%) scale(1.1); opacity: 0; } }
     @keyframes cheersRipple { 0% { transform: translate(-50%,-50%) scale(0.2); opacity: 0.7; } 100% { transform: translate(-50%,-50%) scale(3.2); opacity: 0; } }
@@ -370,7 +371,7 @@
 </section>
 </div>
 
-<section id="carousel-section" data-label="Explore" style="position:relative;width:100%;min-height:100vh;height:100vh;overflow:hidden;font-family:'Satoshi',sans-serif;box-sizing:border-box;background:#B5031F;scroll-snap-align:start;scroll-snap-stop:always;transition:background-color 0.45s ease;">
+<section id="carousel-section" data-label="Explore" style="position:relative;width:100%;min-height:100vh;height:100vh;overflow:hidden;font-family:'Satoshi',sans-serif;box-sizing:border-box;background:#B5031F;transition:background-color 0.45s ease;">
 
   <div style="position:absolute;top:11%;left:50%;transform:translate(-50%,0);width:90%;max-width:1400px;text-align:center;z-index:3;pointer-events:none;">
     <div style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(1.7rem,3.4vw,3.6rem);line-height:0.9;letter-spacing:-0.03em;text-transform:uppercase;color:#ffffff;">Explore our</div>
