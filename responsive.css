@@ -215,8 +215,7 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
   .about-tag span {
     font-size: 0.72rem !important;
   }
-  #about-headline-wrap,
-  #about-headline-fill {
+  #about-headline-wrap {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -228,43 +227,48 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     box-sizing: border-box !important;
   }
   #about-headline-fill {
-    position: absolute !important;
-    inset: 0 !important;
-    pointer-events: none !important;
+    display: none !important;
   }
-  #about-headline-base,
-  #about-headline-fill > span:first-child {
+  #about-headline-base {
     font-size: 17vw !important;
     line-height: 0.82 !important;
     letter-spacing: -0.06em !important;
     white-space: nowrap !important;
+    color: #1D0700 !important;
   }
-  #about-headline-wrap > div,
-  #about-headline-fill > div {
+  #about-headline-wrap > div {
     display: flex !important;
     flex-direction: column !important;
     margin-left: 0.3vw !important;
     padding-top: 0.4vw !important;
   }
-  #about-headline-wrap > div > span,
-  #about-headline-fill > div > span {
+  #about-headline-wrap > div > span {
     font-size: 6.8vw !important;
     line-height: 0.85 !important;
     letter-spacing: -0.06em !important;
     white-space: nowrap !important;
+    color: #1D0700 !important;
   }
   #about-below {
     flex-direction: column !important;
-    margin-top: 2rem !important;
-    align-items: center !important;
+    margin-top: 1.5rem !important;
+    align-items: flex-start !important;
     gap: 2rem !important;
   }
   #about-photo-wrap {
-    width: 80% !important;
-    max-width: 300px !important;
-    margin: 0 auto !important;
+    width: calc(100% + 5.5vw) !important;
+    max-width: 360px !important;
+    margin-left: -5.5vw !important;
+    margin-right: auto !important;
     transform: none !important;
     opacity: 1 !important;
+    align-self: flex-start !important;
+  }
+  #about-hand-photo {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-position: left center !important;
   }
   #about-right-col {
     width: 100% !important;
