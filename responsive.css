@@ -1,0 +1,119 @@
+/* Mobile/tablet overrides. The pages style inline, so these target
+   stable class/id hooks and element selectors only. */
+
+/* ---- Global overflow + touch-target safety net ---- */
+html, body { overflow-x: hidden; max-width: 100%; }
+input, select, textarea, button, a.menu-link, #nav-menu-btn, #nav-menu-close, #header-cart-btn, #cart-close-btn, #checkout-btn {
+  min-height: 44px;
+}
+
+/* ---- About hero: oversized wordmark + centered product shot ---- */
+@media (max-width: 900px) {
+  .ab-hero-row { grid-template-columns: 1fr !important; padding-top: 96vw !important; gap: 1.6rem !important; min-height: 0 !important; }
+  .ab-hero-tile { width: 58% !important; }
+  .ab-hero-shot { height: min(120vw, 620px) !important; }
+}
+
+/* ---- Page hero: title block vertically centered ------------------------
+   Any section marked .page-hero centers its content vertically; inner
+   horizontal alignment and sibling copy/widgets are untouched. */
+.page-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(340px, 46vh, 560px);
+}
+@media (max-width: 760px) {
+  .page-hero { min-height: clamp(260px, 38vh, 400px); }
+}
+
+/* ---- Global button hover motion ----------------------------------------
+   Pill buttons (text + circular arrow badge) and round icon buttons.
+   Matched on their inline radius (spaced + unspaced serializations) or on
+   the .btn-pill / .btn-round hook classes. */
+
+:is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]), .btn-pill {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  will-change: transform;
+}
+:is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]):hover, .btn-pill:hover { transform: translateY(-3px) !important; }
+:is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]):active, .btn-pill:active { transform: translateY(-1px) scale(0.985) !important; }
+
+/* the circular badge inside a pill button */
+:is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]) > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]), .btn-pill > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]) {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  overflow: hidden;
+}
+:is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]):hover > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]), .btn-pill:hover > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]) { transform: scale(1.1) rotate(-8deg) !important; }
+
+/* arrow inside the badge sweeps out and re-enters */
+:is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]):hover > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]) svg, .btn-pill:hover > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]) svg {
+  animation: btn-arrow-sweep 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes btn-arrow-sweep {
+  0%   { transform: translate(0, 0); opacity: 1; }
+  45%  { transform: translate(14px, -14px); opacity: 0; }
+  46%  { transform: translate(-14px, 14px); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+
+/* round icon buttons (carousel / nav arrows) */
+button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]), .btn-round {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              background 0.4s ease, box-shadow 0.4s ease !important;
+}
+button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover, .btn-round:hover { transform: scale(1.08) !important; }
+button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):active, .btn-round:active { transform: scale(0.94) !important; }
+button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg, .btn-round:hover svg { animation: btn-icon-nudge 0.5s cubic-bezier(0.65, 0, 0.35, 1); }
+
+@keyframes btn-icon-nudge {
+  0%   { transform: translateX(0); }
+  40%  { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]):hover, .btn-pill:hover, button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover, .btn-round:hover { transform: none !important; }
+  :is(a,button):is([style*="border-radius:100px"],[style*="border-radius: 100px"],[style*="border-radius:999px"],[style*="border-radius: 999px"],[style*="border-radius:50px"],[style*="border-radius: 50px"]):hover > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]) svg, .btn-pill:hover > span:is([style*="border-radius:50%"],[style*="border-radius: 50%"]) svg, button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg, .btn-round:hover svg { animation: none; }
+}
+
+@media (max-width: 1024px) {
+  .pdp-benefits { grid-template-columns: repeat(3, 1fr) !important; }
+  .pdp-more { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+@media (max-width: 900px) {
+  .pdp-hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .pdp-hero-panel { height: min(90vw, 460px) !important; border-radius: 20px !important; }
+  .shop-grid { grid-template-columns: 1fr !important; gap: 1.8rem !important; }
+  .pdp-more { grid-template-columns: repeat(2, 1fr) !important; }
+  .pdp-compare > div { padding: 0.8rem 0.7rem !important; font-size: 0.78rem !important; }
+
+  section { padding-left: 5% !important; padding-right: 5% !important; }
+
+  header { padding: 10px 14px !important; gap: 12px !important; top: 10px !important; left: 10px !important; right: 10px !important; border-radius: 14px !important; }
+  header svg[viewBox="0 0 603.93 80.86"] { height: 17px !important; }
+  header a[href="Shop Now.dc.html"] > span:first-child { display: none !important; }
+  header #header-cart-btn { width: 40px !important; height: 40px !important; }
+
+  .menu-link { font-size: 9vw !important; padding: 0.35em 0.2em !important; }
+
+  #about-can-track { height: calc(100vh + 900px) !important; }
+  #about-can-row { flex-wrap: wrap !important; gap: 4px !important; justify-content: center !important; }
+  .about-can-slot { flex: 0 0 30% !important; min-width: 0 !important; max-width: 32% !important; }
+  .about-fruit-deco { width: 70px !important; }
+
+  footer#site-footer > div:last-child { gap: 1.8rem !important; }
+}
+
+@media (max-width: 620px) {
+  .pdp-benefits, .pdp-more { grid-template-columns: repeat(2, 1fr) !important; }
+  .pdp-specs { grid-template-columns: 1fr 1fr !important; gap: 0.8rem 1rem !important; }
+  .pdp-compare { grid-template-columns: 1fr 1fr 1fr !important; }
+  .pdp-compare > div { padding: 0.65rem 0.5rem !important; font-size: 0.68rem !important; }
+  .menu-link { font-size: 11vw !important; }
+  footer#site-footer > div:last-child > div { min-width: 45% !important; }
+  .about-can-slot { flex: 0 0 31% !important; max-width: 33% !important; }
+}

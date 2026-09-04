@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#141210">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#141210"/>
+    <text x="100" y="112" font-family="Georgia, serif" font-size="72" fill="#ED3500" text-anchor="middle">D</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Dose of Island</title>
+  <link rel="preload" as="fetch" href="uploads/watermelon.glb" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Galada&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/satoshi">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="responsive.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    @font-face { font-family: 'Florensans'; src: url('uploads/Florensans.ttf') format('truetype'); font-display: swap; }
+    html, body { margin: 0; padding: 0; font-family: 'Satoshi', sans-serif; font-weight: 400; }
+    image-slot::part(ring) { display: none !important; }
+    image-slot::part(frame) { background: transparent !important; }
+    a { color: #B5031F; }
+    a:hover { color: #8C0016; }
+    @keyframes liquidWaveDrift { 0% { transform: translateX(0); } 100% { transform: translateX(-20px); } }
+    @keyframes btnBubbleRise { 0% { transform: translate(0,0); opacity: 0; } 15% { opacity: 0.8; } 100% { transform: translate(6px,-34px); opacity: 0; } }
+    @keyframes abMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ab-marquee-track { display: flex; width: max-content; animation: abMarquee 26s linear infinite; }
+    .ab-value { position: relative; overflow: hidden; isolation: isolate; }
+    .about-can-slot { position: relative; }
+    .ab-value-fill { position: absolute; inset: 0; background: #ED3500; z-index: 0; clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
+    .ab-value-body { position: relative; z-index: 1; }
+    .ab-value:hover .ab-value-num, .ab-value:hover .ab-value-title, .ab-value:hover .ab-value-copy { color: #F4F2EA !important; }
+    .ab-value-num, .ab-value-title, .ab-value-copy { transition: color 0.4s ease; }
+    @media (max-width: 900px) {
+      #ab-values-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ab-marquee-track { animation: none !important; }
+    }
+  </style>
+</helmet>
+
+<div id="about-root" style="position:relative;width:100%;font-family:'Satoshi',sans-serif;font-weight:400;background:#ffffff;color:#1F0A0A;overflow:clip;">
+
+  <header style="display:flex;justify-content:space-between;align-items:center;gap:24px;padding:16px 24px;position:fixed;top:16px;left:16px;right:16px;border-radius:16px;background:#F6F6F6;z-index:999;box-sizing:border-box;box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+    <div style="display:flex;align-items:center;gap:32px;flex-shrink:0;">
+      <button id="nav-menu-btn" aria-label="Menu" aria-expanded="false" style="width:24px;height:24px;flex-shrink:0;padding:0;border:none;background:none;color:#000000;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;">
+        <svg id="menu-icon-bars" width="19" height="15" viewBox="0 0 19 15" fill="none" style="position:absolute;transition:opacity 0.2s ease;"><path d="M1 1.5h17M1 7.5h17M1 13.5h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+        <svg id="menu-icon-x" width="19" height="15" viewBox="0 0 19 15" fill="none" style="position:absolute;opacity:0;transition:opacity 0.2s ease;"><path d="M2 1.5L17 13.5M17 1.5L2 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>
+      </button>
+    </div>
+    <a href="index.html" aria-label="Dose of Island home" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:block;">
+      <svg viewBox="0 0 603.93 80.86" xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="height:24px;width:auto;color:#000000;flex-shrink:0;">
+        <g>
+          <path d="M14.04,1.43c6.31,0,12.18.78,17.6,2.34,5.42,1.56,10.36,4.46,14.82,8.69,3.71,3.56,6.48,7.76,8.3,12.59,1.82,4.83,2.73,9.95,2.73,15.38,0,5.42-.91,10.55-2.73,15.37-1.82,4.83-4.59,9.02-8.3,12.59-4.46,4.23-9.4,7.13-14.82,8.69-5.42,1.56-11.29,2.34-17.6,2.34H0s0-77.99,0-77.99h14.04ZM8.36,5.89v69.08s6.13,0,6.13,0c5.5,0,10.34-.87,14.54-2.62,4.19-1.74,7.72-4.14,10.58-7.19,2.86-3.04,4.99-6.68,6.41-10.92,1.41-4.23,2.12-8.84,2.12-13.82,0-4.98-.71-9.58-2.12-13.82-1.41-4.23-3.55-7.87-6.41-10.92-2.86-3.04-6.39-5.44-10.58-7.19-4.2-1.74-9.04-2.62-14.54-2.62h-6.13Z"></path>
+          <path d="M102.61.1h.56c5.72,0,11.03,1.02,15.93,3.06,4.9,2.04,9.14,4.89,12.7,8.52,3.56,3.64,6.35,7.91,8.36,12.81,2.01,4.9,3.01,10.21,3.01,15.93,0,5.72-1,11.05-3.01,15.99-2.01,4.94-4.79,9.21-8.36,12.81-3.57,3.6-7.8,6.43-12.7,8.47-4.9,2.04-10.25,3.06-16.04,3.06h-.56c-5.72,0-11.03-1.02-15.93-3.06-4.9-2.04-9.14-4.86-12.7-8.47-3.57-3.6-6.35-7.87-8.36-12.81-2.01-4.94-3.01-10.27-3.01-15.99,0-5.72,1-11.05,3.01-15.99,2.01-4.94,4.79-9.21,8.36-12.81,3.57-3.6,7.8-6.42,12.7-8.47C91.47,1.12,96.82.1,102.61.1ZM102.84,75.97c4.38.07,8.45-.78,12.2-2.56,3.75-1.78,6.98-4.27,9.69-7.46,2.71-3.19,4.83-6.96,6.35-11.31,1.52-4.35,2.28-9.08,2.28-14.21,0-5.13-.76-9.86-2.28-14.21-1.52-4.35-3.64-8.12-6.35-11.31-2.71-3.19-5.94-5.66-9.69-7.41-3.75-1.74-7.82-2.62-12.2-2.62-4.38,0-8.45.87-12.2,2.62-3.75,1.75-6.98,4.22-9.69,7.41-2.71,3.19-4.83,6.96-6.35,11.31-1.52,4.34-2.28,9.08-2.28,14.21,0,5.12.76,9.86,2.28,14.21,1.52,4.35,3.64,8.12,6.35,11.31,2.71,3.19,5.94,5.68,9.69,7.46,3.75,1.78,7.82,2.64,12.2,2.56Z"></path>
+          <path d="M152.97,62.82c1.93,2.97,3.73,5.29,5.4,6.96,1.67,1.67,3.68,3.17,6.02,4.51,2.34,1.34,4.88,1.86,7.63,1.56,2.23-.22,4.16-.93,5.79-2.12,1.63-1.19,2.82-2.75,3.57-4.68.89-2.38,1.04-4.85.45-7.41-.6-2.56-1.86-4.92-3.79-7.07-2.38-2.6-4.75-5.11-7.13-7.52-2.38-2.41-4.98-4.92-7.8-7.52l-1.67-1.56c-3.27-3.12-5.85-6.09-7.74-8.91-1.89-2.82-3.03-5.64-3.4-8.47-.37-2.82-.13-5.48.73-7.97.85-2.49,2.24-4.7,4.18-6.63,2.08-2.08,4.47-3.62,7.19-4.62,2.71-1,5.48-1.39,8.3-1.17,2.52.22,4.77.8,6.74,1.73,1.97.93,3.64,1.91,5.01,2.95,1.37,1.04,2.8,2.41,4.29,4.12l-7.13,5.79c-.45-.59-1.06-1.41-1.84-2.45-.78-1.04-1.73-2.08-2.84-3.12-1.11-1.04-2.36-1.95-3.73-2.73-1.38-.78-2.84-1.17-4.4-1.17-1.71,0-3.31.46-4.79,1.39-1.49.93-2.64,2.14-3.45,3.62-.82,1.63-1.21,3.38-1.17,5.24.04,1.86.58,3.75,1.62,5.68.67,1.11,1.58,2.38,2.73,3.79,1.15,1.41,2.43,2.82,3.84,4.23,1.41,1.41,2.84,2.82,4.29,4.23,1.45,1.41,2.8,2.68,4.07,3.79,1.56,1.41,3.14,2.86,4.74,4.35,1.6,1.49,3.12,3.05,4.57,4.68,1.45,1.63,2.71,3.34,3.79,5.13,1.08,1.78,1.87,3.64,2.4,5.57.74,2.82.93,5.51.56,8.08-.37,2.56-1.23,4.88-2.56,6.96-1.93,2.9-4.57,5.07-7.91,6.52s-6.87,2.17-10.59,2.17c-3.86,0-7.22-.63-10.08-1.89-2.86-1.26-5.24-2.68-7.13-4.23-1.89-1.56-3.81-3.64-5.74-6.24l7.02-5.57Z"></path>
+          <path d="M199.21,1.43h36.21s0,4.46,0,4.46h-27.85s0,36.77,0,36.77h24.4s0,4.46,0,4.46h-24.4s0,27.85,0,27.85h29.64s0,4.46,0,4.46h-37.99s0-77.99,0-77.99Z"></path>
+          <path d="M332.01,79.42h-8.36s0-77.99,0-77.99h8.36s0,77.99,0,77.99Z"></path>
+          <path d="M347.39,62.82c1.93,2.97,3.73,5.29,5.4,6.96,1.67,1.67,3.68,3.17,6.02,4.51,2.34,1.34,4.88,1.86,7.63,1.56,2.23-.22,4.16-.93,5.79-2.12,1.63-1.19,2.82-2.75,3.57-4.68.89-2.38,1.04-4.85.45-7.41-.6-2.56-1.86-4.92-3.79-7.07-2.38-2.6-4.75-5.11-7.13-7.52-2.38-2.41-4.98-4.92-7.8-7.52l-1.67-1.56c-3.27-3.12-5.85-6.09-7.74-8.91-1.89-2.82-3.03-5.64-3.4-8.47-.37-2.82-.13-5.48.73-7.97.85-2.49,2.24-4.7,4.18-6.63,2.08-2.08,4.47-3.62,7.19-4.62,2.71-1,5.48-1.39,8.3-1.17,2.52.22,4.77.8,6.74,1.73,1.97.93,3.64,1.91,5.01,2.95,1.37,1.04,2.8,2.41,4.29,4.12l-7.13,5.79c-.45-.59-1.06-1.41-1.84-2.45-.78-1.04-1.73-2.08-2.84-3.12-1.11-1.04-2.36-1.95-3.73-2.73-1.38-.78-2.84-1.17-4.4-1.17-1.71,0-3.31.46-4.79,1.39-1.49.93-2.64,2.14-3.45,3.62-.82,1.63-1.21,3.38-1.17,5.24.04,1.86.58,3.75,1.62,5.68.67,1.11,1.58,2.38,2.73,3.79,1.15,1.41,2.43,2.82,3.84,4.23,1.41,1.41,2.84,2.82,4.29,4.23,1.45,1.41,2.8,2.68,4.07,3.79,1.56,1.41,3.14,2.86,4.74,4.35,1.6,1.49,3.12,3.05,4.57,4.68,1.45,1.63,2.71,3.34,3.79,5.13,1.08,1.78,1.87,3.64,2.4,5.57.74,2.82,9.51.56,8.08-.37,2.56-1.23,4.88-2.56,6.96-1.93,2.9-4.57,5.07-7.91,6.52s-6.87,2.17-10.59,2.17c-3.86,0-7.22-.63-10.08-1.89-2.86-1.26-5.24-2.68-7.13-4.23-1.89-1.56-3.81-3.64-5.74-6.24l7.02-5.57Z"></path>
+          <path d="M412.51,79.42h-19s0-77.99,0-77.99h8.36s0,73.54,0,73.54h10.64s0,4.46,0,4.46Z"></path>
+          <path d="M440.15.1h1.89s23.29,79.33,23.29,79.33h-8.69s-3.45-11.59-3.45-11.59h-27.63s-3.23,11.59-3.23,11.59h-4.68S440.15.1,440.15.1ZM426.89,63.38h24.96s-12.7-43.34-12.7-43.34l-12.26,43.34Z"></path>
+          <path d="M473.13,79.42V1.43s5.01,0,5.01,0l38.33,58.72V1.43s4.46,0,4.46,0v79.33s-1.89,0-1.89,0l-41.45-63.62v62.28s-4.46,0-4.46,0Z"></path>
+          <path d="M547.77,1.43c6.31,0,12.18.78,17.6,2.34,5.42,1.56,10.36,4.46,14.82,8.69,3.71,3.56,6.48,7.76,8.3,12.59,1.82,4.83,2.73,9.95,2.73,15.38,0,5.42-.91,10.55-2.73,15.37-1.82,4.83-4.59,9.02-8.3,12.59-4.46,4.23-9.4,7.13-14.82,8.69-5.42,1.56-11.29,2.34-17.6,2.34h-14.04s0-77.99,0-77.99h14.04ZM542.09,5.89v69.08s6.13,0,6.13,0c5.5,0,10.34-.87,14.54-2.62,4.19-1.74,7.72-4.14,10.58-7.19,2.86-3.04,4.99-6.68,6.41-10.92,1.41-4.23,2.12-8.84,2.12-13.82,0-4.98-.71-9.58-2.12-13.82-1.41-4.23-3.55-7.87-6.41-10.92-2.86-3.04-6.39-5.44-10.58-7.19-4.2-1.74-9.04-2.62-14.54-2.62h-6.13Z"></path>
+          <path d="M597.91,68.62c1.78,0,3.23.56,4.35,1.67,1.11,1.11,1.67,2.56,1.67,4.34,0,1.78-.54,3.25-1.62,4.4-1.08,1.15-2.55,1.73-4.4,1.73-1.78,0-3.25-.58-4.4-1.73-1.15-1.15-1.73-2.62-1.73-4.4,0-1.71.59-3.14,1.78-4.29,1.19-1.15,2.64-1.73,4.34-1.73Z"></path>
+          <path d="M247.47,52.95c0-14.77,11.2-31.18,21.54-31.18,5.75,0,9.17,4.9,9.17,12.13,0,14.69-11.27,30.87-21.69,30.87-5.75,0-9.02-4.59-9.02-11.82ZM257.88,62.67c7.08,0,15.39-16.02,15.39-29.16,0-5.36-1.56-9.64-5.68-9.64-7.08,0-15.32,16.33-15.32,29.39,0,5.36,1.48,9.41,5.6,9.41Z"></path>
+          <path d="M260.06,78.06c0-1.56,1.32-3.03,3.58-3.03,3.03,0,4.28,2.25,6.61,2.25,4.66,0,7.08-5.6,11.35-19.75l9.64-31.72c.31-1.01.23-1.71-1.17-1.71h-4.9c-1.09,0-.78-1.24.31-1.24,4.04,0,6.76-.47,7.7-3.42l.62-2.02C296.68,8.09,300.02,0,309.82,0c3.19,0,5.68,1.48,5.68,3.34,0,1.4-.85,2.57-2.8,2.57-2.41,0-5.52-3.42-8.09-3.42-1.63,0-2.41,1.17-3.73,5.36-1.09,3.42-1.87,7.23-2.57,9.95l-.78,2.64c-.54,1.79,0,2.49,1.24,2.49,2.33,0,5.68-.62,7.23-.62,1.4,0,1.24,1.87-.39,1.87h-7.31c-1.01,0-2.02.39-2.49,1.79l-9.49,31.18c-4.04,13.14-11.35,23.71-21.85,23.71-2.64,0-4.43-1.17-4.43-2.8Z"></path>
+        </g>
+      </svg>
+    </a>
+    <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+      <button id="header-cart-btn" aria-label="Shopping Cart" style="position:relative;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#ffffff;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.1);border:none;cursor:pointer;flex-shrink:0;transition:transform 0.2s ease;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 6H21" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <span id="cart-badge" style="position:absolute;top:-2px;right:-2px;background:#ED3500;color:#ffffff;font-family:'Satoshi',sans-serif;font-weight:700;font-size:11px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(237,53,0,0.4);transition:transform 0.2s ease;">0</span>
+      </button>
+      <a href="Shop Now.dc.html" style-hover="box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.16);" style="display:flex;align-items:center;gap:0;padding:4px;border-radius:100px;background:#ffffff;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.1);text-decoration:none;flex-shrink:0;transition:box-shadow 0.25s ease;">
+        <span style="padding:11px 14px;font-family:'Satoshi',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#050505;white-space:nowrap;">Shop Now</span>
+        <span style="width:40px;height:40px;border-radius:50%;background:#ED3500;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <div id="nav-menu-overlay" style="position:fixed;inset:0;z-index:1000;visibility:hidden;pointer-events:none;opacity:1;">
+    <svg id="menu-wave-svg" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;display:block;">
+      <path id="menu-wave-path" fill="#F4F2EA"></path>
+    </svg>
+    <div id="menu-wave-content" style="position:absolute;inset:0;opacity:0;">
+      <button id="nav-menu-close" aria-label="Close menu" style="position:absolute;top:1.53vw;left:1.53vw;width:3.33vw;height:3.33vw;min-width:44px;min-height:44px;border-radius:1.25vw;background:#ED3500;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 5L19 19M19 5L5 19" stroke="#F4F2EA" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      </button>
+      <nav style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;gap:1.6vw;align-items:center;">
+        <a class="menu-link" href="index.html" style="position:relative;display:inline-block;opacity:0;transform:translateY(24px);font-family:'Florensans','Galada',cursive;font-weight:400;font-size:4.6vw;letter-spacing:-0.06em;line-height:1.1;color:#050505;text-decoration:none;overflow:hidden;padding:0 0.2em;">
+          <span style="position:relative;z-index:1;color:#050505;">Home</span>
+          <span class="menu-link-fill" aria-hidden="true" style="position:absolute;inset:0;z-index:2;color:#ED3500;clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);pointer-events:none;white-space:nowrap;padding:0 0.2em;">Home</span>
+        </a>
+        <a class="menu-link" href="About Us.dc.html" style="position:relative;display:inline-block;opacity:0;transform:translateY(24px);font-family:'Florensans','Galada',cursive;font-weight:400;font-size:4.6vw;letter-spacing:-0.06em;line-height:1.1;color:#050505;text-decoration:none;overflow:hidden;padding:0 0.2em;">
+          <span style="position:relative;z-index:1;color:#050505;">About</span>
+          <span class="menu-link-fill" aria-hidden="true" style="position:absolute;inset:0;z-index:2;color:#ED3500;clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);pointer-events:none;white-space:nowrap;padding:0 0.2em;">About</span>
+        </a>
+        <a class="menu-link" href="Shop Now.dc.html" style="position:relative;display:inline-block;opacity:0;transform:translateY(24px);font-family:'Florensans','Galada',cursive;font-weight:400;font-size:4.6vw;letter-spacing:-0.06em;line-height:1.1;color:#050505;text-decoration:none;overflow:hidden;padding:0 0.2em;">
+          <span style="position:relative;z-index:1;color:#050505;">Shop</span>
+          <span class="menu-link-fill" aria-hidden="true" style="position:absolute;inset:0;z-index:2;color:#ED3500;clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);pointer-events:none;white-space:nowrap;padding:0 0.2em;">Shop</span>
+        </a>
+        <a class="menu-link" href="Find Us.dc.html" style="position:relative;display:inline-block;opacity:0;transform:translateY(24px);font-family:'Florensans','Galada',cursive;font-weight:400;font-size:4.6vw;letter-spacing:-0.06em;line-height:1.1;color:#050505;text-decoration:none;overflow:hidden;padding:0 0.2em;">
+          <span style="position:relative;z-index:1;color:#050505;">Find Us</span>
+          <span class="menu-link-fill" aria-hidden="true" style="position:absolute;inset:0;z-index:2;color:#ED3500;clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);pointer-events:none;white-space:nowrap;padding:0 0.2em;">Find Us</span>
+        </a>
+        <a class="menu-link" href="Get in Touch.dc.html" style="position:relative;display:inline-block;opacity:0;transform:translateY(24px);font-family:'Florensans','Galada',cursive;font-weight:400;font-size:4.6vw;letter-spacing:-0.06em;line-height:1.1;color:#050505;text-decoration:none;overflow:hidden;padding:0 0.2em;">
+          <span style="position:relative;z-index:1;color:#050505;">Get in Touch</span>
+          <span class="menu-link-fill" aria-hidden="true" style="position:absolute;inset:0;z-index:2;color:#ED3500;clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);pointer-events:none;white-space:nowrap;padding:0 0.2em;">Get in Touch</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <section id="about-hero-pin" style="position:relative;width:100%;background:#ffffff;padding:120px 0 clamp(2rem,4vw,4rem);box-sizing:border-box;overflow:hidden;min-height:calc(290px + min(84vw, 820px) + 2rem);">
+
+    <h1 class="ab-wordmark" style="position:relative;z-index:1;margin:0;font-family:'Florensans','Galada',cursive;font-weight:400;font-size:20vw;line-height:0.78;letter-spacing:-0.035em;text-transform:uppercase;color:#1D0700;text-align:center;white-space:nowrap;">
+      <span class="ab-mask" style="display:block;overflow:hidden;padding:0.1em 0 0.06em;"><span class="ab-mask-in" style="position:relative;display:inline-block;">About Us<span style="color:#050505;">.</span><span id="ab-wordmark-fill" aria-hidden="true" style="position:absolute;left:0;top:0;color:#ED3500;clip-path:polygon(0% 100%,100% 100%,100% 100%,0% 100%);pointer-events:none;">About Us<span style="color:#050505;">.</span></span></span></span>
+    </h1>
+    <div class="ab-hero-shot" style="position:absolute;z-index:2;top:290px;left:50%;transform:translateX(-50%) translateY(0) scale(1);height:min(84vw, 820px);aspect-ratio:0.42;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);" style-hover="transform:translateX(-50%) translateY(-10px) scale(1.03);">
+      <model-viewer id="ab-hero-can" src="uploads/watermelon.glb" alt="Dose of Island watermelon can" disable-zoom="" shadow-intensity="1" exposure="1.0" environment-image="neutral" interaction-prompt="none" camera-orbit="0deg 78deg 105%" field-of-view="30deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+    </div>
+
+    <div class="ab-hero-row" style="position:relative;z-index:3;display:grid;grid-template-columns:24% 1fr 32%;align-items:end;gap:2rem;padding:2rem 4% 0;box-sizing:border-box;min-height:calc(90px + min(84vw, 820px) - 19vw);">
+
+      <div class="ab-hero-tile" style="width:100%;aspect-ratio:1;border-radius:26px;overflow:hidden;background:#F1EDE3;box-shadow:0 20px 42px rgba(5,5,5,0.16);">
+        <img src="uploads/about-img-1.jpg" alt="Sharing a Dose of Island" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+
+      <div aria-hidden="true"></div>
+
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1rem;">
+        <span id="ab-eyebrow" style="display:inline-block;opacity:0;font-family:'Satoshi',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:#ED3500;">Drink clean · Live loud</span>
+        <h2 style="margin:0;font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.12;letter-spacing:-0.02em;color:#050505;">Dose of Island?<br>Let's Get Into It.</h2>
+        <p id="ab-hero-copy" style="opacity:0;margin:0;font-family:'Satoshi',sans-serif;font-weight:400;font-size:clamp(0.98rem,1.15vw,1.1rem);line-height:1.6;color:rgba(5,5,5,0.6);max-width:42ch;text-wrap:pretty;">More than a drink — it's an invitation to slow down, celebrate flavor, and carry the carefree energy of the tropics wherever you go. Real fruit, zero sugar, island attitude in every can.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about-dark-section" style="position:relative;width:100%;background:#FBF7EA;overflow:clip;padding:0;box-sizing:border-box;">
+
+    <!-- Cans row popping in right after the description -->
+    <div id="about-can-track" style="position:relative;z-index:3;width:100%;height:calc(100vh + 1800px);">
+    <div id="about-can-row-pin" style="position:sticky;top:0;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(0.4rem,1.2vh,1rem);padding-top:clamp(116px,15vh,140px);box-sizing:border-box;overflow:hidden;background:#FBF7EA;">
+      <img class="about-fruit-deco" data-base-rot="-14" src="uploads/tamarind-1.png" alt="Tamarind" style="position: absolute; top: 16%; left: 13%; width: 168px; height: auto; transform: rotate(-14deg); pointer-events: auto; z-index: 1">
+      <img class="about-fruit-deco" data-base-rot="-10" src="uploads/guava-1.png" alt="Guava" style="position: absolute; top: 44%; left: 3%; width: 175px; height: auto; transform: rotate(-10deg); pointer-events: auto; z-index: 1">
+      <img class="about-fruit-deco" data-base-rot="12" src="uploads/passionfruit-1.png" alt="Passionfruit" style="position: absolute; top: 72%; left: 2%; width: 178px; height: auto; transform: rotate(12deg); pointer-events: auto; z-index: 1">
+      <img class="about-fruit-deco" data-base-rot="10" src="uploads/pomegranate-1.png" alt="Pomegranate" style="position: absolute; top: 21%; right: 8%; width: 164px; height: auto; transform: rotate(10deg); pointer-events: auto; z-index: 1; left: 1830.38px">
+      <img class="about-fruit-deco" data-base-rot="-12" src="uploads/lime-1.png" alt="Lime" style="position: absolute; top: 50%; right: 5%; width: 130px; height: auto; transform: rotate(-12deg); pointer-events: auto; z-index: 1">
+      <img class="about-fruit-deco" data-base-rot="8" src="uploads/watermelon-1.png" alt="Watermelon" style="position: absolute; top: 76%; right: 3%; width: 206px; height: auto; transform: rotate(8deg); pointer-events: auto; z-index: 1">
+        <div style="max-width:560px;margin:0 auto;text-align:center;padding:0 6%;position:relative;z-index:4;flex-shrink:0;">
+        <h2 style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.02;letter-spacing:-0.01em;color:#050505;margin:0 0 clamp(0.5rem,1.4vh,1.1rem);text-transform:uppercase;">
+        THIS ISN'T<br>JUST A DRINK<span style="color:#ED3500;">.</span>
+        </h2>
+        <div style="display:flex;flex-direction:column;gap:clamp(0.4rem,1vh,0.9rem);max-width:760px;margin:0 auto;font-family:'Satoshi',sans-serif;font-weight:400;font-size:clamp(0.78rem,1.7vh,1rem);line-height:1.5;color:rgba(5,5,5,0.72);">
+        <p style="margin:0;">It's a dose of the island we all dream about. We created Dose of Island with real fruit, real health, no nonsense. Because we were tired of sugary sodas and fake juices. Less than 1g of sugar, under 10 calories, and a full 1000mg of Vitamin C.</p>
+        <p style="margin:0;">No preservatives. No artificial crap. Just island attitude in a can. This is more than quenching your thirst. It's about reminding you of what Sri Lanka is: vibrant, honest, bold, and free. So slow down. Chill out. Choose better. This is your Daily Dose of Island. Drink clean. Live loud.</p>
+        </div>
+        </div>
+      <div style="width:100%;flex:1 1 auto;min-height:clamp(190px,32vh,420px);display:flex;align-items:flex-end;justify-content:center;box-sizing:border-box;">
+        <div id="about-can-row" style="display:flex;justify-content:center;align-items:flex-end;gap:clamp(4px,1vw,18px);width:100%;height:100%;margin:0;padding:0 1% 26px;box-sizing:border-box;">
+          <div class="about-can-slot" data-model="uploads/watermelon.glb" style="flex:0 1 auto;height:100%;aspect-ratio:0.42;width:auto;max-width:250px;align-self:flex-end;overflow:visible;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));">
+            <model-viewer disable-zoom="" shadow-intensity="0" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="-6deg 74deg 100%" field-of-view="26deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+          </div>
+          <div class="about-can-slot" data-model="uploads/pomegrenate.glb" style="flex:0 1 auto;height:100%;aspect-ratio:0.42;width:auto;max-width:250px;align-self:flex-end;overflow:visible;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));">
+            <model-viewer disable-zoom="" shadow-intensity="0" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="-6deg 74deg 100%" field-of-view="26deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+          </div>
+          <div class="about-can-slot" data-model="uploads/passionfruit.glb" style="flex:0 1 auto;height:100%;aspect-ratio:0.42;width:auto;max-width:250px;align-self:flex-end;overflow:visible;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));">
+            <model-viewer disable-zoom="" shadow-intensity="0" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="-6deg 74deg 100%" field-of-view="26deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+          </div>
+          <div class="about-can-slot" data-model="uploads/Lime.glb" style="flex:0 1 auto;height:100%;aspect-ratio:0.42;width:auto;max-width:250px;align-self:flex-end;overflow:visible;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));">
+            <model-viewer disable-zoom="" shadow-intensity="0" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="-6deg 74deg 100%" field-of-view="26deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+          </div>
+          <div class="about-can-slot" data-model="uploads/guava.glb" style="flex:0 1 auto;height:100%;aspect-ratio:0.42;width:auto;max-width:250px;align-self:flex-end;overflow:visible;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));">
+            <model-viewer disable-zoom="" shadow-intensity="0" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="-6deg 74deg 100%" field-of-view="26deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+          </div>
+          <div class="about-can-slot" data-model="uploads/tamarind.glb" style="flex:0 1 auto;height:100%;aspect-ratio:0.42;width:auto;max-width:250px;align-self:flex-end;overflow:visible;filter:drop-shadow(0 10px 14px rgba(5,5,5,0.32));">
+            <model-viewer disable-zoom="" shadow-intensity="0" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="-6deg 74deg 100%" field-of-view="26deg" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;pointer-events:none;"></model-viewer>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="position:relative;width:100%;background:#ED3500;padding:1.1rem 0 1.3rem;overflow:hidden;box-sizing:border-box;">
+    <div class="ab-marquee-track">
+      <span style="display:flex;align-items:center;gap:2.5rem;padding-right:2.5rem;font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1;text-transform:uppercase;color:#FBF7EA;white-space:nowrap;">
+        <span>Real fruit</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Zero sugar</span><span style="color:rgba(251,247,234,0.55);">•</span><span>No preservatives</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Island attitude</span><span style="color:rgba(251,247,234,0.55);">•</span>
+        <span>Real fruit</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Zero sugar</span><span style="color:rgba(251,247,234,0.55);">•</span><span>No preservatives</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Island attitude</span><span style="color:rgba(251,247,234,0.55);">•</span>
+      </span>
+      <span aria-hidden="true" style="display:flex;align-items:center;gap:2.5rem;padding-right:2.5rem;font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(1.8rem,3.6vw,3rem);line-height:1;text-transform:uppercase;color:#FBF7EA;white-space:nowrap;">
+        <span>Real fruit</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Zero sugar</span><span style="color:rgba(251,247,234,0.55);">•</span><span>No preservatives</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Island attitude</span><span style="color:rgba(251,247,234,0.55);">•</span>
+        <span>Real fruit</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Zero sugar</span><span style="color:rgba(251,247,234,0.55);">•</span><span>No preservatives</span><span style="color:rgba(251,247,234,0.55);">•</span><span>Island attitude</span><span style="color:rgba(251,247,234,0.55);">•</span>
+      </span>
+    </div>
+  </div>
+
+  <section id="ab-values" style="position:relative;width:100%;background:#ffffff;padding:6.5rem 2.08% 7rem;box-sizing:border-box;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;max-width:1400px;margin:0 auto 2.6rem;">
+      <h2 style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1;text-transform:uppercase;color:#1F0A0A;margin:0;padding-top:0.06em;">How we make it<span style="color:#ED3500;">.</span></h2>
+      <p style="font-family:'Satoshi',sans-serif;font-size:1rem;line-height:1.6;color:rgba(31,10,10,0.55);max-width:400px;margin:0;text-wrap:pretty;">Three rules we set before the first batch, and haven't broken since.</p>
+    </div>
+    <div id="ab-values-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1400px;margin:0 auto;">
+      <div class="ab-value" style="border-radius:24px;background:#F4F2EA;padding:2.2rem 2rem 2.4rem;box-sizing:border-box;min-height:300px;display:flex;opacity:0;">
+        <div class="ab-value-fill"></div>
+        <div class="ab-value-body" style="display:flex;flex-direction:column;gap:0.7rem;">
+          <span class="ab-value-num" style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.16em;color:#ED3500;">01</span>
+          <h3 class="ab-value-title" style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.02;text-transform:uppercase;color:#1F0A0A;margin:0.2rem 0 0;">Real fruit,<br>not flavouring</h3>
+          <p class="ab-value-copy" style="font-family:'Satoshi',sans-serif;font-size:0.92rem;line-height:1.6;color:rgba(31,10,10,0.58);margin:auto 0 0;">Every flavour starts with fruit rather than a lab-made compound, so the taste doesn't need sugar propping it up.</p>
+        </div>
+      </div>
+      <div class="ab-value" style="border-radius:24px;background:#F4F2EA;padding:2.2rem 2rem 2.4rem;box-sizing:border-box;min-height:300px;display:flex;opacity:0;">
+        <div class="ab-value-fill"></div>
+        <div class="ab-value-body" style="display:flex;flex-direction:column;gap:0.7rem;">
+          <span class="ab-value-num" style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.16em;color:#ED3500;">02</span>
+          <h3 class="ab-value-title" style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.02;text-transform:uppercase;color:#1F0A0A;margin:0.2rem 0 0;">Nothing<br>to hide</h3>
+          <p class="ab-value-copy" style="font-family:'Satoshi',sans-serif;font-size:0.92rem;line-height:1.6;color:rgba(31,10,10,0.58);margin:auto 0 0;">No preservatives, no artificial sweeteners, no fine print. What's on the can is what's in the can.</p>
+        </div>
+      </div>
+      <div class="ab-value" style="border-radius:24px;background:#F4F2EA;padding:2.2rem 2rem 2.4rem;box-sizing:border-box;min-height:300px;display:flex;opacity:0;">
+        <div class="ab-value-fill"></div>
+        <div class="ab-value-body" style="display:flex;flex-direction:column;gap:0.7rem;">
+          <span class="ab-value-num" style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.16em;color:#ED3500;">03</span>
+          <h3 class="ab-value-title" style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.02;text-transform:uppercase;color:#1F0A0A;margin:0.2rem 0 0;">Made where<br>it grows</h3>
+          <p class="ab-value-copy" style="font-family:'Satoshi',sans-serif;font-size:0.92rem;line-height:1.6;color:rgba(31,10,10,0.58);margin:auto 0 0;">Fruit sourced across Sri Lanka and pressed close to harvest — vibrant, honest, bold, and free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-ritual-section" style="position:relative;width:100%;background-image:url('uploads/ritual-bg-grass.png');background-size:cover;background-position:center top;background-repeat:no-repeat;padding:7rem 6% 8rem;box-sizing:border-box;">
+    <div style="max-width:700px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.3rem;">
+      <h2 style="font-family:'Florensans','Galada',cursive;font-weight:400;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.08;color:#1F0A0A;margin:0;">Make Dose of Island<br>Part of Your Daily Ritual</h2>
+      <p style="color:rgba(31,10,10,0.55);font-size:1.02rem;line-height:1.6;max-width:460px;margin:0;">One can, six flavors, zero guesswork. Here's exactly what's inside.</p>
+      <a href="Shop Now.dc.html" style-hover="box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.16);" style="display:flex;align-items:center;gap:0;padding:4px;border-radius:100px;background:#ffffff;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,0.1);text-decoration:none;margin-top:0.5rem;transition:box-shadow 0.25s ease;">
+        <span style="padding:11px 14px;font-family:'Satoshi',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#050505;white-space:nowrap;">Shop Now</span>
+        <span style="width:40px;height:40px;border-radius:50%;background:#ED3500;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4V10" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+      </a>
+    </div>
+
+    <div id="ritual-card" style="position:relative;max-width:900px;margin:4.5rem auto 0;padding:6vh 4%;box-sizing:border-box;min-height:52vh;display:flex;align-items:center;justify-content:center;">
+      <div style="position:relative;width:min(30vw,300px);height:44vh;">
+        <model-viewer id="ritual-can-model" disable-zoom="" shadow-intensity="1.6" shadow-softness="0.9" exposure="1.05" environment-image="neutral" interaction-prompt="none" camera-orbit="0deg 75deg 105%" field-of-view="30deg" src="uploads/pomegrenate.glb" style="width:100%;height:100%;outline:none;--progress-bar-color:transparent;--poster-color:transparent;"></model-viewer>
+      </div>
+
+      <div class="ritual-bubble" style="position:absolute;top:8%;left:6%;display:flex;flex-direction:column;gap:2px;background:#ffffff;border-radius:16px;padding:0.7rem 1rem;box-shadow:0 8px 20px rgba(31,10,10,0.08);opacity:0;transform:scale(0.8);">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(31,10,10,0.45);">Sugar Level</span>
+        <span style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:1.15rem;color:#1F0A0A;">&lt;1g sugar</span>
+      </div>
+      <div class="ritual-bubble" style="position:absolute;top:6%;right:7%;display:flex;flex-direction:column;gap:2px;background:#ffffff;border-radius:16px;padding:0.7rem 1rem;box-shadow:0 8px 20px rgba(31,10,10,0.08);opacity:0;transform:scale(0.8);">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(31,10,10,0.45);">Preservatives</span>
+        <span style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:1.15rem;color:#1F0A0A;">None added</span>
+      </div>
+      <div class="ritual-bubble" style="position:absolute;top:40%;left:1%;display:flex;flex-direction:column;gap:2px;background:#ffffff;border-radius:16px;padding:0.7rem 1rem;box-shadow:0 8px 20px rgba(31,10,10,0.08);opacity:0;transform:scale(0.8);">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(31,10,10,0.45);">Nutrition</span>
+        <span style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:1.15rem;color:#1F0A0A;">1000mg Vit C</span>
+      </div>
+      <div class="ritual-bubble" style="position:absolute;top:38%;right:1%;display:flex;flex-direction:column;gap:2px;background:#ffffff;border-radius:16px;padding:0.7rem 1rem;box-shadow:0 8px 20px rgba(31,10,10,0.08);opacity:0;transform:scale(0.8);">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(31,10,10,0.45);">Origin</span>
+        <span style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:1.15rem;color:#1F0A0A;">Island-inspired</span>
+      </div>
+      <div class="ritual-bubble" style="position:absolute;bottom:10%;left:8%;display:flex;flex-direction:column;gap:2px;background:#ffffff;border-radius:16px;padding:0.7rem 1rem;box-shadow:0 8px 20px rgba(31,10,10,0.08);opacity:0;transform:scale(0.8);">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(31,10,10,0.45);">Formulation</span>
+        <span style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:1.15rem;color:#1F0A0A;">Real fruit</span>
+      </div>
+      <div class="ritual-bubble" style="position:absolute;bottom:8%;right:8%;display:flex;flex-direction:column;gap:2px;background:#ffffff;border-radius:16px;padding:0.7rem 1rem;box-shadow:0 8px 20px rgba(31,10,10,0.08);opacity:0;transform:scale(0.8);">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(31,10,10,0.45);">Calories</span>
+        <span style="font-family:'Satoshi',sans-serif;font-weight:700;font-size:1.15rem;color:#1F0A0A;">Under 10 cal</span>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer" style="position:relative;width:100%;background:#ffffff;padding:0 2.08% 3rem;box-sizing:border-box;font-family:'Satoshi',sans-serif;">
+    <div style="border-top:1px solid #000000;width:100%;"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:2.5rem;padding:3.5rem 0 0;box-sizing:border-box;align-items:flex-start;">
+      <div style="display:flex;flex-direction:column;gap:0.85rem;min-width:150px;flex:1;">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:#141314;">Navigation</span>
+        <a href="Catalog.dc.html" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">Catalog</a>
+        <a href="#" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">Find Us</a>
+        <a href="#" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">FAQs</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;min-width:150px;flex:1;">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:#141314;">Legal Information</span>
+        <a href="#" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">Terms and Conditions</a>
+        <a href="#" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">Privacy Policy</a>
+      </div>
+      <div style="display:flex;flex-direction:column;flex:1.2;min-width:180px;align-items:center;">
+        <span style="font-family:'Florensans','Galada',cursive;font-weight:500;font-size:2rem;line-height:1.05;color:#141314;text-align:center;">DOSE<span style="font-style:italic;font-weight:400;"> of</span><br>ISLAND.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;min-width:190px;flex:1.3;">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:#141314;">Contact</span>
+        <span style="color:#141314;opacity:0.6;font-family:'Satoshi',sans-serif;font-size:0.8rem;line-height:1.6;">10/3 Greenland Lane,<br>Isipathana Mawatha, Colombo 05</span>
+        <a href="mailto:info@doseofisland.com" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">info@doseofisland.com</a>
+        <a href="tel:0768843875" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">076-8843875</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;min-width:150px;flex:1;">
+        <span style="font-family:'Satoshi',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:#141314;">Social Networks</span>
+        <a href="#" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">Instagram</a>
+        <a href="#" style-hover="opacity:1;" style="color:#141314;opacity:0.6;text-decoration:none;font-family:'Satoshi',sans-serif;font-size:0.8rem;transition:opacity 0.2s ease;">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+class Component extends DCLogic {
+  renderVals() { return {}; }
+
+  componentDidMount() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    gsap.registerPlugin(ScrollTrigger);
+    this._triggers = [];
+    this._onWinError = (e) => {
+      const err = e.error || e.reason;
+      console.warn('[about] captured error:', (err && (err.message || String(err))) || e.message || 'unknown', err && err.stack);
+    };
+    window.addEventListener('error', this._onWinError);
+    window.addEventListener('unhandledrejection', this._onWinError);
+    this._rafIds = [];
+
+    // ---------- Nav menu (liquid wipe) — reused verbatim from the homepage ----------
+    const menuOverlay = document.getElementById('nav-menu-overlay');
+    const menuWaveSvg = document.getElementById('menu-wave-svg');
+    const menuWavePath = document.getElementById('menu-wave-path');
+    const menuContent = document.getElementById('menu-wave-content');
+    const menuLinks = Array.from(document.querySelectorAll('.menu-link'));
+    const menuBtn = document.getElementById('nav-menu-btn');
+    const menuClose = document.getElementById('nav-menu-close');
+    const menuIconBars = document.getElementById('menu-icon-bars');
+    const menuIconX = document.getElementById('menu-icon-x');
+    const menuReduceMotion = prefersReducedMotion;
+    let mvw = window.innerWidth, mvh = window.innerHeight;
+    const syncMenuSize = () => { mvw = window.innerWidth; mvh = window.innerHeight; menuWaveSvg.setAttribute('viewBox', '0 0 ' + mvw + ' ' + mvh); };
+    syncMenuSize();
+    window.addEventListener('resize', syncMenuSize);
+    const catmull = (pts) => {
+      let d = '';
+      for (let i = 0; i < pts.length - 1; i++) {
+        const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+        const c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+        const c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+        d += ' C' + c1x + ',' + c1y + ' ' + c2x + ',' + c2y + ' ' + p2[0] + ',' + p2[1];
+      }
+      return d;
+    };
+    const buildWave = (topY, amp, t) => {
+      const N = 6, pts = [];
+      for (let i = 0; i <= N; i++) {
+        const x = i / N * mvw;
+        const y = topY + amp * Math.sin(t + i * 1.05) + amp * 0.4 * Math.sin(t * 1.7 + i * 2.1);
+        pts.push([x, y]);
+      }
+      return 'M0,' + mvh + ' L0,' + pts[0][1] + catmull(pts) + ' L' + mvw + ',' + mvh + ' Z';
+    };
+    const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
+    const easeInCubic = (x) => x * x * x;
+    const menuAnim = { id: null };
+    let waveState = 'closed';
+    let phase = 0, openStart = 0, closeStart = 0, contentTriggered = false;
+    const OPEN_MS = 620, CLOSE_MS = 460;
+    const triggerContentIn = () => {
+      menuContent.style.transition = 'opacity 0.3s ease';
+      menuContent.style.opacity = '1';
+      menuLinks.forEach((el, i) => {
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, i * 70);
+      });
+    };
+    const resetContent = () => {
+      menuContent.style.transition = '';
+      menuContent.style.opacity = '0';
+      menuLinks.forEach(el => { el.style.transition = ''; el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; });
+    };
+    const menuLoop = (now) => {
+      if (waveState === 'opening') {
+        const t = Math.min(1, (now - openStart) / OPEN_MS);
+        const e = easeOutCubic(t);
+        const topY = mvh - e * mvh;
+        const amp = 16 * (1 - t * 0.5);
+        phase += 0.12;
+        menuWavePath.setAttribute('d', buildWave(topY, amp, phase));
+        if (t >= 0.72 && !contentTriggered) { contentTriggered = true; triggerContentIn(); }
+        if (t >= 1) waveState = 'idle';
+      } else if (waveState === 'idle') {
+        phase += 0.015;
+        menuWavePath.setAttribute('d', buildWave(0, 5, phase));
+      } else if (waveState === 'closing') {
+        const t = Math.min(1, (now - closeStart) / CLOSE_MS);
+        const e = easeInCubic(t);
+        const topY = e * mvh;
+        const amp = 14 * (1 - t * 0.3);
+        phase += 0.12;
+        menuWavePath.setAttribute('d', buildWave(topY, amp, phase));
+        if (t >= 1) {
+          waveState = 'closed';
+          menuOverlay.style.visibility = 'hidden';
+          menuOverlay.style.pointerEvents = 'none';
+          document.body.style.overflow = '';
+          cancelAnimationFrame(menuAnim.id); menuAnim.id = null;
+          return;
+        }
+      }
+      menuAnim.id = requestAnimationFrame(menuLoop);
+    };
+    const openMenu = () => {
+      if (waveState === 'opening' || waveState === 'idle') return;
+      document.body.style.overflow = 'hidden';
+      menuOverlay.style.visibility = 'visible';
+      menuOverlay.style.pointerEvents = 'auto';
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuIconBars.style.opacity = '0';
+      menuIconX.style.opacity = '1';
+      if (menuReduceMotion) {
+        menuWavePath.setAttribute('d', 'M0,0 L' + mvw + ',0 L' + mvw + ',' + mvh + ' L0,' + mvh + ' Z');
+        menuContent.style.transition = 'opacity 0.25s ease';
+        menuContent.style.opacity = '1';
+        menuLinks.forEach(el => { el.style.transition = 'opacity 0.25s ease'; el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+        waveState = 'idle';
+        return;
+      }
+      resetContent();
+      contentTriggered = false;
+      waveState = 'opening';
+      openStart = performance.now();
+      if (!menuAnim.id) menuAnim.id = requestAnimationFrame(menuLoop);
+    };
+    const closeMenu = () => {
+      if (waveState === 'closed' || waveState === 'closing') return;
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuIconBars.style.opacity = '1';
+      menuIconX.style.opacity = '0';
+      if (menuReduceMotion) {
+        menuContent.style.transition = 'opacity 0.2s ease';
+        menuContent.style.opacity = '0';
+        menuLinks.forEach(el => { el.style.transition = 'opacity 0.2s ease'; el.style.opacity = '0'; });
+        setTimeout(() => {
+          menuOverlay.style.visibility = 'hidden';
+          menuOverlay.style.pointerEvents = 'none';
+          document.body.style.overflow = '';
+        }, 200);
+        waveState = 'closed';
+        return;
+      }
+      menuContent.style.transition = 'opacity 0.18s ease';
+      menuContent.style.opacity = '0';
+      menuLinks.forEach(el => { el.style.transition = 'opacity 0.15s ease'; el.style.opacity = '0'; });
+      setTimeout(() => {
+        waveState = 'closing';
+        closeStart = performance.now();
+        if (!menuAnim.id) menuAnim.id = requestAnimationFrame(menuLoop);
+      }, 160);
+    };
+    const onMenuKeydown = (e) => { if (e.key === 'Escape' && waveState !== 'closed') closeMenu(); };
+    if (menuBtn) menuBtn.addEventListener('click', () => { waveState === 'closed' ? openMenu() : closeMenu(); });
+    if (menuClose) menuClose.addEventListener('click', closeMenu);
+    menuLinks.forEach(el => el.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', onMenuKeydown);
+
+    // Liquid wave fill hover effect for full-screen menu links (80% fill on hover)
+    menuLinks.forEach((linkEl) => {
+      const fillEl = linkEl.querySelector('.menu-link-fill');
+      if (!fillEl) return;
+      const state = { p: 0, targetP: 0, phase: Math.random() * Math.PI * 2 };
+      let animFrameId = null;
+
+      const renderLinkClip = () => {
+        state.phase += 0.04;
+        state.p += (state.targetP - state.p) * 0.045;
+        const p = state.p;
+        const base = 100 - p * 100;
+        const amp = p > 0.02 ? 3.6 : 0;
+        const pts = [];
+        const N = 8;
+        for (let i = 0; i <= N; i++) {
+          const x = (i / N) * 100;
+          const y = base + Math.sin(state.phase + i * 1.1) * amp;
+          pts.push(`${x}% ${y}%`);
+        }
+        fillEl.style.clipPath = `polygon(${pts.join(',')}, 100% 100%, 0% 100%)`;
+
+        if (Math.abs(state.targetP - state.p) > 0.002 || state.targetP > 0) {
+          animFrameId = requestAnimationFrame(renderLinkClip);
+        } else {
+          state.p = state.targetP;
+          if (state.targetP === 0) {
+            fillEl.style.clipPath = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
+          }
+          animFrameId = null;
+        }
+      };
+
+      const startAnim = () => {
+        if (!animFrameId) animFrameId = requestAnimationFrame(renderLinkClip);
+      };
+
+      linkEl.addEventListener('mouseenter', () => {
+        state.targetP = 0.8;
+        startAnim();
+      });
+
+      linkEl.addEventListener('mouseleave', () => {
+        state.targetP = 0;
+        startAnim();
+      });
+    });
+
+    // ---------- scroll progress bar ----------
+    const progressEl = document.getElementById('ab-progress');
+    if (progressEl) {
+      const onScrollProgress = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progressEl.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+      };
+      onScrollProgress();
+      window.addEventListener('scroll', onScrollProgress, { passive: true });
+      this._removeProgress = () => window.removeEventListener('scroll', onScrollProgress);
+    }
+
+    // ---------- hero intro: masked headline lines, eyebrow, copy ----------
+    const heroMasks = Array.from(document.querySelectorAll('.ab-mask-in'));
+    const eyebrowEl = document.getElementById('ab-eyebrow');
+    const heroCopyEl = document.getElementById('ab-hero-copy');
+    if (prefersReducedMotion) {
+      heroMasks.forEach(el => gsap.set(el, { yPercent: 0 }));
+      gsap.set([eyebrowEl, heroCopyEl].filter(Boolean), { opacity: 1 });
+    } else {
+      gsap.set(heroMasks, { yPercent: 115 });
+      const introTl = gsap.timeline({ delay: 0.15 });
+      if (eyebrowEl) introTl.to(eyebrowEl, { opacity: 1, duration: 0.5, ease: 'power2.out' });
+      introTl.to(heroMasks, { yPercent: 0, duration: 1.05, stagger: 0.11, ease: 'power4.out' }, 0.1);
+      if (heroCopyEl) introTl.to(heroCopyEl, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, 0.55);
+    }
+
+    // ---------- stats: reveal + count-up ----------
+    const statEls = Array.from(document.querySelectorAll('.ab-stat'));
+    const runCount = (el) => {
+      const to = Number(el.dataset.to || 0);
+      const prefix = el.dataset.prefix || '';
+      const obj = { v: 0 };
+      gsap.to(obj, {
+        v: to, duration: 1.5, ease: 'power2.out',
+        onUpdate: () => { el.textContent = prefix + Math.round(obj.v); },
+      });
+    };
+    if (statEls.length) {
+      if (prefersReducedMotion) {
+        statEls.forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
+      } else {
+        gsap.set(statEls, { opacity: 0, y: 34 });
+        const st = ScrollTrigger.create({
+          trigger: '#ab-stats', start: 'top 72%', once: true,
+          onEnter: () => {
+            statEls.forEach((el, i) => {
+              gsap.to(el, { opacity: 1, y: 0, duration: 0.7, delay: i * 0.11, ease: 'power3.out' });
+              const num = el.querySelector('.ab-num');
+              if (num) gsap.delayedCall(i * 0.11, () => runCount(num));
+            });
+          },
+        });
+        this._triggers.push(st);
+      }
+    }
+
+    // ---------- values: liquid wave fill on hover ----------
+    const valueCards = Array.from(document.querySelectorAll('.ab-value'));
+    valueCards.forEach((card) => {
+      const fill = card.querySelector('.ab-value-fill');
+      if (!fill) return;
+      if (prefersReducedMotion) {
+        card.addEventListener('mouseenter', () => { fill.style.clipPath = 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)'; });
+        card.addEventListener('mouseleave', () => { fill.style.clipPath = 'polygon(0% 100%,100% 100%,100% 100%,0% 100%)'; });
+        return;
+      }
+      let p = 0, target = 0, phase = 0, running = false;
+      const render = () => {
+        const base = 100 - p * 100;
+        const amp = p > 0.02 && p < 0.99 ? 4.5 : 0;
+        const pts = [];
+        for (let i = 0; i <= 22; i++) {
+          const x = (i / 22) * 100;
+          pts.push(x + '% ' + (base + Math.sin((i / 22) * Math.PI * 2.2 + phase) * amp) + '%');
+        }
+        fill.style.clipPath = 'polygon(' + pts.join(',') + ', 100% 100%, 0% 100%)';
+      };
+      const tick = () => {
+        phase += 0.05;
+        p += (target - p) * 0.06;
+        render();
+        if (Math.abs(target - p) < 0.002 && (target === 0 || target === 1)) {
+          p = target; render(); running = false; return;
+        }
+        this._rafIds.push(requestAnimationFrame(tick));
+      };
+      const start = (t) => { target = t; if (!running) { running = true; this._rafIds.push(requestAnimationFrame(tick)); } };
+      card.addEventListener('mouseenter', () => start(1));
+      card.addEventListener('mouseleave', () => start(0));
+    });
+
+    // ---------- values: staggered rise ----------
+    const valueEls = Array.from(document.querySelectorAll('.ab-value'));
+    if (valueEls.length) {
+      if (prefersReducedMotion) {
+        gsap.set(valueEls, { opacity: 1, y: 0 });
+      } else {
+        gsap.set(valueEls, { opacity: 0, y: 60 });
+        const st = ScrollTrigger.create({
+          trigger: '#ab-values', start: 'top 70%', once: true,
+          onEnter: () => gsap.to(valueEls, { opacity: 1, y: 0, duration: 0.85, stagger: 0.13, ease: 'power3.out' }),
+        });
+        this._triggers.push(st);
+      }
+    }
+
+    // ---------- shared step-reveal: pin a section, reveal N items in sequence as the user scrolls ----------
+    const stepReveal = (pinEl, count, extraVh, onStep) => {
+      if (!pinEl) return null;
+      if (prefersReducedMotion) { for (let i = 0; i < count; i++) onStep(i, true); return null; }
+      let lastIndex = -1;
+      const check = (self) => {
+        const idx = Math.min(count - 1, Math.floor(self.progress * count));
+        while (lastIndex < idx) { lastIndex++; onStep(lastIndex, false); }
+      };
+      const st = ScrollTrigger.create({
+        trigger: pinEl, start: 'top top', end: '+=' + extraVh, pin: true, scrub: true, anticipatePin: 1,
+        onUpdate: check, onRefresh: check,
+      });
+      check(st);
+      return st;
+    };
+
+    // ---------- hero wordmark: liquid fill (same technique as the homepage) ----------
+    const wmFill = document.getElementById('ab-wordmark-fill');
+    if (wmFill) {
+      let wmP = prefersReducedMotion ? 1 : 0, wmTarget = prefersReducedMotion ? 1 : 0, wmPhase = 0;
+      const renderWm = () => {
+        const base = 100 - wmP * 100;
+        const amp = wmP > 0.02 && wmP < 0.99 ? 3.2 : 0;
+        const pts = [];
+        for (let i = 0; i <= 24; i++) {
+          const x = (i / 24) * 100;
+          const y = base + Math.sin((i / 24) * Math.PI * 2.4 + wmPhase) * amp;
+          pts.push(x + '% ' + y + '%');
+        }
+        wmFill.style.clipPath = 'polygon(' + pts.join(',') + ', 100% 100%, 0% 100%)';
+      };
+      renderWm();
+      if (!prefersReducedMotion) {
+        const wmTick = () => {
+          this._rafIds.push(requestAnimationFrame(wmTick));
+          wmPhase += 0.045;
+          wmP += (wmTarget - wmP) * 0.1;
+          renderWm();
+        };
+        wmTick();
+        const wmTrigger = ScrollTrigger.create({
+          trigger: '#about-hero-pin', start: 'top top', end: 'bottom 70%', scrub: 0.6,
+          onUpdate: (self) => { wmTarget = self.progress; },
+        });
+        this._triggers.push(wmTrigger);
+      }
+    }
+
+    // ---------- Section 2: liquid-fill headline (reusing the About-section fill technique) ----------
+    const darkFillEl = document.getElementById('dark-fill-headline-fill');
+    const darkFillSection = document.getElementById('about-dark-section');
+    const darkCopy = document.getElementById('about-dark-copy');
+    let darkFillProgressVal = prefersReducedMotion ? 1 : 0;
+    let darkWavePhase = 0;
+    const renderDarkClip = () => {
+      const p = darkFillProgressVal;
+      const base = 100 - p * 100;
+      const amp = p > 0.02 && p < 0.99 ? 3.2 : 0;
+      const pts = [];
+      const N = 8;
+      for (let i = 0; i <= N; i++) {
+        const x = (i / N) * 100;
+        const y = base + Math.sin(darkWavePhase + i * 0.9) * amp;
+        pts.push(x + '% ' + y + '%');
+      }
+      darkFillEl.style.clipPath = 'polygon(' + pts.join(',') + ', 100% 100%, 0% 100%)';
+    };
+    if (darkFillEl) renderDarkClip();
+    let darkCopyRevealed = prefersReducedMotion;
+    if (prefersReducedMotion && darkCopy) { darkCopy.style.opacity = '1'; darkCopy.style.transform = 'none'; }
+
+    if (darkFillEl && !prefersReducedMotion) {
+      let darkFillTarget = 0;
+      const darkTick = () => {
+        darkWavePhase += 0.045;
+        darkFillProgressVal += (darkFillTarget - darkFillProgressVal) * 0.12;
+        renderDarkClip();
+        if (!darkCopyRevealed && darkFillProgressVal >= 0.5) {
+          darkCopyRevealed = true;
+          gsap.to(darkCopy, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' });
+        }
+        const id = requestAnimationFrame(darkTick);
+        this._rafIds.push(id);
+      };
+      darkTick();
+      const fillTrigger = ScrollTrigger.create({
+        trigger: darkFillSection, start: 'top bottom', end: 'top 20%', scrub: 0.6,
+        onUpdate: (self) => { darkFillTarget = self.progress; },
+      });
+      this._triggers.push(fillTrigger);
+    }
+
+    // ---------- fruit deco hover wiggle ----------
+    if (!prefersReducedMotion) {
+      Array.from(document.querySelectorAll('.about-fruit-deco')).forEach((el, i) => {
+        const baseRot = Number(el.dataset.baseRot) || 0;
+        const sign = baseRot < 0 ? -1 : 1;
+        gsap.to(el, { y: '+=14', rotation: baseRot + sign * 4, duration: 2.6 + (i % 3) * 0.4, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * 0.2 });
+        el.addEventListener('mouseenter', () => gsap.to(el, { rotation: baseRot + sign * -7, scale: 1.1, duration: 0.5, ease: 'elastic.out(1,0.4)' }));
+        el.addEventListener('mouseleave', () => gsap.to(el, { rotation: baseRot, scale: 1, duration: 0.5, ease: 'elastic.out(1,0.5)' }));
+      });
+    }
+
+    // ---------- Section 2: 6 cans slide in from bottom sequentially on scroll ----------
+    const canRowPin = document.getElementById('about-can-row-pin');
+    const canSlots = Array.from(document.querySelectorAll('.about-can-slot'));
+    // Lazy-load each can's GLB only once its slot nears the viewport (perf: defers 3D fetch/parse off the critical path).
+    const canLoadIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const slot = entry.target;
+        try {
+          const mv = slot.querySelector('model-viewer');
+          if (mv && !mv.src) {
+            mv.src = slot.dataset.model;
+            const playSlot = () => { if (mv.play) mv.play(); };
+            if (mv.updateComplete) mv.updateComplete.then(playSlot).catch(() => {}); else playSlot();
+            mv.addEventListener('load', playSlot);
+          }
+        } catch (err) {
+          console.warn('[about] can slot init failed:', (err && (err.message || String(err))), err && err.stack);
+        }
+        canLoadIO.unobserve(slot);
+      });
+    }, { rootMargin: '800px 0px' });
+    canSlots.forEach((slot) => canLoadIO.observe(slot));
+
+    if (canRowPin && canSlots.length > 0) {
+      if (prefersReducedMotion) {
+        canSlots.forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
+      } else {
+        // Position all 6 cans below bottom of viewport initially
+        canSlots.forEach(el => gsap.set(el, { opacity: 0, y: '120%' }));
+
+        const canTl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
+        canSlots.forEach((slot, i) => {
+          canTl.to(slot, {
+            opacity: 1,
+            y: '0%',
+            duration: 0.45,
+            ease: 'power2.out'
+          }, i * 0.45);
+        });
+
+        const canTrack = document.getElementById('about-can-track');
+        let canP = 0;
+        const canTick = () => {
+          this._rafIds.push(requestAnimationFrame(canTick));
+          if (canTrack) {
+            const r = canTrack.getBoundingClientRect();
+            const span = r.height - window.innerHeight;
+            const target = span > 0 ? Math.min(Math.max(-r.top / span, 0), 1) : 0;
+            canP += (target - canP) * 0.12;
+            canTl.progress(Math.min(Math.max(canP, 0), 1));
+          }
+        };
+        canTick();
+      }
+    }
+
+    // ---------- Section 3: hero-can hover-tilt reused on the ritual can ----------
+    const ritualModel = document.getElementById('ritual-can-model');
+    if (ritualModel) {
+      const playRitual = () => { if (ritualModel.play) ritualModel.play(); };
+      if (ritualModel.updateComplete) ritualModel.updateComplete.then(playRitual); else playRitual();
+      ritualModel.addEventListener('load', playRitual);
+      const ritualIO = new IntersectionObserver((entries) => { if (entries.some(e => e.isIntersecting)) playRitual(); });
+      ritualIO.observe(ritualModel);
+      this._removeRitualIO = () => ritualIO.disconnect();
+      gsap.set(ritualModel, { xPercent: 0, yPercent: 0 });
+      if (!prefersReducedMotion) {
+        let mouse = { x: 0, y: 0 };
+        let currentMouse = { x: 0, y: 0 };
+        const onMouseMove = (e) => { mouse.x = (e.clientX / window.innerWidth) - 0.5; mouse.y = (e.clientY / window.innerHeight) - 0.5; };
+        window.addEventListener('mousemove', onMouseMove);
+        const animateRitual = () => {
+          this._rafIds.push(requestAnimationFrame(animateRitual));
+          currentMouse.x += (mouse.x - currentMouse.x) * 0.05;
+          currentMouse.y += (mouse.y - currentMouse.y) * 0.05;
+          const yaw = currentMouse.x * 40;
+          const pitch = 75 + currentMouse.y * 16;
+          try { ritualModel.cameraOrbit = yaw + 'deg ' + pitch + 'deg 105%'; } catch (err) { /* keep looping */ }
+        };
+        animateRitual();
+        this._removeRitualMove = () => window.removeEventListener('mousemove', onMouseMove);
+      }
+    }
+
+    // ---------- Section 3: bubbles staggered reveal + idle float ----------
+    const bubbles = Array.from(document.querySelectorAll('.ritual-bubble'));
+    if (prefersReducedMotion) {
+      bubbles.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    } else {
+      const ritualCard = document.getElementById('ritual-card');
+      let bubblesShown = false;
+      const revealBubbles = () => {
+        if (bubblesShown) return;
+        bubblesShown = true;
+        bubbles.forEach((el, i) => {
+          gsap.to(el, {
+            opacity: 1, scale: 1, duration: 0.45, ease: 'power2.out', delay: i * 0.09,
+            onComplete: () => { gsap.to(el, { y: '+=8', duration: 2.4 + i * 0.15, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: i * 0.1 }); },
+          });
+        });
+      };
+      if (ritualCard) {
+        const bubbleIO = new IntersectionObserver((entries) => {
+          if (entries.some(e => e.isIntersecting)) { revealBubbles(); bubbleIO.disconnect(); }
+        }, { rootMargin: '0px 0px -15% 0px' });
+        bubbleIO.observe(ritualCard);
+        const onBubbleScroll = () => {
+          if (ritualCard.getBoundingClientRect().top < window.innerHeight * 0.9) {
+            revealBubbles();
+            window.removeEventListener('scroll', onBubbleScroll);
+          }
+        };
+        window.addEventListener('scroll', onBubbleScroll, { passive: true });
+        onBubbleScroll();
+        this._removeBubbleScroll = () => { bubbleIO.disconnect(); window.removeEventListener('scroll', onBubbleScroll); };
+      } else {
+        revealBubbles();
+      }
+    }
+
+    this._cleanup = () => {
+      window.removeEventListener('resize', syncMenuSize);
+      document.removeEventListener('keydown', onMenuKeydown);
+      if (menuAnim.id) cancelAnimationFrame(menuAnim.id);
+      document.body.style.overflow = '';
+      this._triggers.forEach(t => t.kill());
+      this._rafIds.forEach(id => cancelAnimationFrame(id));
+      if (this._removeRitualMove) this._removeRitualMove();
+      if (this._removeBubbleScroll) this._removeBubbleScroll();
+      if (this._removeRitualIO) this._removeRitualIO();
+      canLoadIO.disconnect();
+      window.removeEventListener('error', this._onWinError);
+      window.removeEventListener('unhandledrejection', this._onWinError);
+      if (this._removeProgress) this._removeProgress();
+    };
+  }
+
+  componentWillUnmount() {
+    if (this._cleanup) this._cleanup();
+  }
+}
+
+</script>
+
+<!-- GLOBAL CART DRAWER -->
+<div id="cart-drawer-overlay" style="position:fixed;inset:0;z-index:9999;visibility:hidden;opacity:0;transition:opacity 0.35s ease, visibility 0.35s ease;">
+  <div id="cart-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);"></div>
+  <div id="cart-drawer" style="position:absolute;top:0;right:0;bottom:0;width:100%;max-width:420px;background:#ffffff;color:#050505;display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);box-shadow:-10px 0 30px rgba(0,0,0,0.15);font-family:'Satoshi',sans-serif;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:24px;border-bottom:1px solid rgba(0,0,0,0.08);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <h2 style="font-family:'Florensans','Galada',cursive;font-size:1.8rem;margin:0;color:#1F0A0A;">Your Cart</h2>
+        <span id="cart-header-count" style="background:#ED3500;color:#ffffff;font-size:0.75rem;font-weight:700;padding:2px 8px;border-radius:20px;">0 items</span>
+      </div>
+      <button id="cart-close-btn" aria-label="Close cart" style="width:36px;height:36px;border-radius:50%;border:none;background:#F6F6F6;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="#050505" stroke-width="2" stroke-linecap="round"></path></svg>
+      </button>
+    </div>
+
+    <div id="cart-items-list" style="flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;">
+      <div id="cart-empty-state" style="margin:auto;text-align:center;padding:40px 20px;">
+        <div style="width:64px;height:64px;border-radius:50%;background:#F6F6F6;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="#888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6H21" stroke="#888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 style="font-size:1.1rem;font-weight:600;margin:0 0 8px;color:#1F0A0A;">Your cart is empty</h3>
+        <p style="color:#666;font-size:0.88rem;margin:0 0 20px;">Looks like you haven't added any tropical drinks yet.</p>
+        <a href="Shop Now.dc.html" style="display:inline-block;padding:12px 24px;border-radius:100px;background:#ED3500;color:#ffffff;text-decoration:none;font-weight:600;font-size:0.88rem;">Explore Drinks</a>
+      </div>
+    </div>
+
+    <div id="cart-footer" style="padding:20px 24px;border-top:1px solid rgba(0,0,0,0.08);background:#FAFAFA;display:none;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.9rem;color:#666;">
+        <span>Subtotal</span>
+        <span id="cart-subtotal-val" style="font-weight:700;color:#050505;">$0.00</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:16px;font-size:0.9rem;color:#666;">
+        <span>Shipping</span>
+        <span style="color:#10B981;font-weight:600;">FREE</span>
+      </div>
+      <button id="checkout-btn" style="width:100%;padding:14px;border-radius:100px;background:#ED3500;color:#ffffff;border:none;font-family:'Satoshi',sans-serif;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.04em;cursor:pointer;box-shadow:0 6px 20px rgba(237,53,0,0.3);transition:transform 0.2s ease;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
