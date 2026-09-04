@@ -767,7 +767,8 @@ class Component extends DCLogic {
 
     if (canRowPin && canSlots.length > 0) {
       const activeSlots = canSlots.filter(el => window.getComputedStyle(el).display !== 'none');
-      if (prefersReducedMotion) {
+      const isMobile = window.innerWidth <= 768;
+      if (prefersReducedMotion || isMobile) {
         activeSlots.forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
       } else {
         // Position visible cans below bottom of viewport initially

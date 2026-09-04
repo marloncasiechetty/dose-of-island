@@ -362,13 +362,20 @@ button:is([style*="border-radius:50%"],[style*="border-radius: 50%"]):hover svg,
     justify-content: center !important;
     align-items: flex-end !important;
     height: auto !important;
+    min-height: 220px !important;
     margin-top: 1.5rem !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .about-can-slot {
     flex: 0 1 31% !important;
     max-width: 32% !important;
     height: 220px !important;
+    min-height: 180px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
     aspect-ratio: auto !important;
+    transform: none !important;
   }
   .about-can-slot:nth-child(n+4) {
     display: none !important;
