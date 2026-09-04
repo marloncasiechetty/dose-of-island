@@ -766,14 +766,15 @@ class Component extends DCLogic {
     canSlots.forEach((slot) => canLoadIO.observe(slot));
 
     if (canRowPin && canSlots.length > 0) {
+      const activeSlots = canSlots.filter(el => window.getComputedStyle(el).display !== 'none');
       if (prefersReducedMotion) {
-        canSlots.forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
+        activeSlots.forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
       } else {
-        // Position all 6 cans below bottom of viewport initially
-        canSlots.forEach(el => gsap.set(el, { opacity: 0, y: '120%' }));
+        // Position visible cans below bottom of viewport initially
+        activeSlots.forEach(el => gsap.set(el, { opacity: 0, y: '120%' }));
 
         const canTl = gsap.timeline({ paused: true, defaults: { ease: 'none' } });
-        canSlots.forEach((slot, i) => {
+        activeSlots.forEach((slot, i) => {
           canTl.to(slot, {
             opacity: 1,
             y: '0%',
